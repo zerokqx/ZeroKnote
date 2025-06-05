@@ -1,13 +1,11 @@
 import { style } from "@vanilla-extract/css";
 import { direction, flex, justify } from "@/styles/recipes/flex.css.ts";
 
-export const headerControlWindowStyle = style([
+export const controlStyle = style([
   flex,
   direction.row,
   justify.end,
   {
-    paddingBottom: "10px",
-    borderRadius: 0,
-    gap: "1%",
+    gap: "5px",
   },
 ]);

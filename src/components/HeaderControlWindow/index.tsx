@@ -2,9 +2,9 @@ import { FC } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { Button } from "@/components/Button";
 import { headerControlWindowStyle } from "@/styles/headerControlWindow.css.ts";
-import Close from "@svg/Cross.svg?react";
-import Line from "@svg/Line.svg?react";
-import Rollup from "@svg/Window.svg?react";
+import Close from "@/assets/svg/16/Cross.svg?react";
+import Line from "@/assets/svg/16/Line.svg?react";
+import Rollup from "@/assets/svg/16/Window.svg?react";
 import { WindowControlMock } from "@/utils/WindowControl.ts";
 import { isTauri } from "@tauri-apps/api/core";
 

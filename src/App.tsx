@@ -1,13 +1,9 @@
-import {useEffect, useState} from "react";
-import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
+import "@styles/themes/light.css.ts";
+import { HeaderControlWindow } from "@/components/HeaderControlWindow";
 
 function App() {
-
-
-  return (
-   <p>hell</p>
-  );
+  return <HeaderControlWindow />;
 }
 
 export default App;

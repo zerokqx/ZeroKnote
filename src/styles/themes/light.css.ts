@@ -39,6 +39,7 @@ const block: Theme["block"] = {
   primary: "#FFFFFF",
 };
 createGlobalTheme(":root", theme, {
+  active: "#EBEBEB",
   border,
   button,
   text,

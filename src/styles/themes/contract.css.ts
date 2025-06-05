@@ -1,23 +1,31 @@
 import { createThemeContract } from "@vanilla-extract/css";
 import { Statuses, Theme, ThemeUnit } from "@/types/themeElemet.types.ts";
 
-const nullThemeUnit: ThemeUnit<null> & Statuses<null> = {
-  primary: null,
-  secondary: null,
-  accent: null,
-  muted: null,
+const statusContract: Statuses<null> = {
   warning: null,
   error: null,
   success: null,
 };
 
+const themeUnitContract: ThemeUnit<null> & Statuses<null> = {
+  primary: null,
+  secondary: null,
+  accent: null,
+  muted: null,
+  ...statusContract,
+};
+
 export const theme = createThemeContract<Theme<null>>({
-  button: nullThemeUnit,
+  active: null,
+  button: themeUnitContract,
   window: {
     primary: null,
   },
-  border: nullThemeUnit,
-  text: nullThemeUnit,
+  border: {
+    primary: null,
+    ...statusContract,
+  },
+  text: themeUnitContract,
   block: {
     primary: null,
   },

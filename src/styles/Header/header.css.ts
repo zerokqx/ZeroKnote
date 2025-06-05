@@ -6,12 +6,14 @@ export const headerStyle = style([
   flex,
   direction.row,
   items.center,
-  justify.evenly,
+  justify.between,
   {
     minWidth: "min-content",
     border: `1px solid ${theme.border.primary} `,
-    height: 45,
+    minHeight: 45,
+    maxHeight: "max-content",
     borderRadius: 10,
-    padding: "0 30px 0 30px",
+    padding: "5px 30px 5px 30px",
+    transition: "0.1s ease-in-out",
   },
 ]);

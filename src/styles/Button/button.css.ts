@@ -22,6 +22,7 @@ export const buttonStyles = style([
     minWidth: buttonSize,
     borderRadius: "8px",
     transition: "0.1s ease",
+    backgroundColor: theme.button.primary,
     selectors: {
       "&:active": {
         backgroundColor: theme.active,

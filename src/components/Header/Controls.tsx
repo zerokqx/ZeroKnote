@@ -4,8 +4,8 @@ import { Button } from "@/components/Button";
 import { controlStyle } from "@/styles/Header/control.css.ts";
 
 export const Controls: FC<
-  ComponentProps<"div"> & { children: ReactNode[] }
-> = ({ className, children, ...props }) => {
+  ComponentProps<"div"> & { children: ReactNode[]; ButtonLocal: ReactNode }
+> = ({ className, ButtonLocal, children, ...props }) => {
   return (
     <div className={clsx(controlStyle, className)} {...props}>
       {children.map((icon, key) => (

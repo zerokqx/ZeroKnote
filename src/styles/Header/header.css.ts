@@ -6,8 +6,9 @@ export const headerStyle = style([
   flex,
   direction.row,
   items.center,
-  justify.between,
+  justify.evenly,
   {
+    minWidth: "min-content",
     border: `1px solid ${theme.border.primary} `,
     height: 45,
     borderRadius: 10,

@@ -5,7 +5,7 @@ import { borderCss } from "@/styles/recipes/border.css.ts";
 
 const buttonSize = createVar({
   syntax: "<number>",
-  initialValue: "31px",
+  initialValue: "36px",
   inherits: false,
 });
 
@@ -16,7 +16,7 @@ export const buttonStyles = style([
   borderCss,
   {
     vars: {
-      [buttonSize]: "31px",
+      [buttonSize]: "36px",
     },
     minHeight: buttonSize,
     minWidth: buttonSize,

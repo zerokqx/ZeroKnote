@@ -1,15 +1,15 @@
 import { createVar, style } from "@vanilla-extract/css";
-import { theme } from "@/styles/themes/contract.css.ts";
 import { flex, items, justify } from "@/styles/recipes/flex.css.ts";
 import { borderCss } from "@/styles/recipes/border.css.ts";
+import { vars } from "@/styles/themes/theme.css.ts";
 
-const buttonSize = createVar({
+export const buttonSize = createVar({
   syntax: "<number>",
   initialValue: "36px",
   inherits: false,
 });
 
-export const buttonStyles = style([
+export default style([
   flex,
   items.center,
   justify.center,
@@ -22,10 +22,10 @@ export const buttonStyles = style([
     minWidth: buttonSize,
     borderRadius: "8px",
     transition: "0.1s ease",
-    backgroundColor: theme.button.primary,
+    backgroundColor: vars.colors.white[500],
     selectors: {
       "&:active": {
-        backgroundColor: theme.active,
+        backgroundColor: vars.colors.white[13200],
         translate: "0 0.1rem",
       },
     },

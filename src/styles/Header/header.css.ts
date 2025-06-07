@@ -1,15 +1,15 @@
 import { style } from "@vanilla-extract/css";
 import { direction, flex, items, justify } from "@/styles/recipes/flex.css.ts";
-import { theme } from "@/styles/themes/contract.css.ts";
+import { vars } from "@/styles/themes/theme.css.ts";
 
-export const headerStyle = style([
+export default style([
   flex,
   direction.row,
   items.center,
   justify.between,
   {
     minWidth: "min-content",
-    border: `1px solid ${theme.border.primary} `,
+    border: `1px solid ${vars.colors.white[200]} `,
     minHeight: 45,
     maxHeight: "max-content",
     borderRadius: 10,

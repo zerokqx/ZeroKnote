@@ -15,7 +15,7 @@ const themeUnitContract: ThemeUnit<null> & Statuses<null> = {
   ...statusContract,
 };
 
-export const theme = createThemeContract<Theme<null>>({
+export default createThemeContract<Theme<null>>({
   active: null,
   button: themeUnitContract,
   window: {

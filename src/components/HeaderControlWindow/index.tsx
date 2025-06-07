@@ -1,6 +1,5 @@
 import { FC, useMemo } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import { Button } from "@/components/Button";
 import { headerControlWindowStyle } from "@/styles/headerControlWindow.css.ts";
 import Close from "@/assets/svg/16/Cross.svg?react";
 import Line from "@/assets/svg/16/Line.svg?react";
@@ -22,15 +21,12 @@ export const HeaderControlWindow: FC = () => {
   if (!windowInstance) return null;
   return (
     <div className={headerControlWindowStyle}>
-      <Button onClick={async () => await windowInstance.minimize()}>
-        <Line />
-      </Button>
-      <Button>
-        <Rollup />
-      </Button>
-      <Button onClick={async () => await windowInstance.close()}>
-        <Close />
-      </Button>
+      <Line />
+      <Rollup />
+      <Close />
+      {/*<Button onClick={async () => await windowInstance.minimize()}></Button>*/}
+      {/*<Button></Button>*/}
+      {/*<Button onClick={async () => await windowInstance.close()}></Button>*/}
     </div>
   );
 };

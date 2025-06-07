@@ -1,4 +1,3 @@
-// styles/sprinkles/index.ts
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { mediaQueries } from "@/styles/breakpoints.ts";
 

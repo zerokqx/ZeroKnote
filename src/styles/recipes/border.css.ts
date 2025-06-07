@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { theme } from "@/styles/themes/contract.css.ts";
+import { vars } from "@/styles/themes/theme.css.ts";
 
 export const borderCss = style({
-  borderColor: theme.border.primary,
+  borderColor: vars.colors.white[500],
 
   borderStyle: "solid",
 

@@ -9,6 +9,8 @@ const host = process.env.TAURI_DEV_HOST;
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
   plugins: [
+    vanillaExtractPlugin(),
+    
     react(),
     vitePluginSvgr({
       svgrOptions: {
@@ -18,7 +20,6 @@ export default defineConfig(async () => ({
         },
       },
     }),
-    vanillaExtractPlugin(),
   ],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`

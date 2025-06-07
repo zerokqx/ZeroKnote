@@ -1,13 +1,18 @@
 import "./App.css";
-import "@styles/themes/light.css.ts";
+import "@mantine/core/styles.css";
+
 import { HeaderControlWindow } from "@/components/HeaderControlWindow";
 import { Header } from "@/components/Header";
+import { MantineProvider } from "@mantine/core";
+import { theme } from "@/styles/themes/theme.ts";
 
 function App() {
   return (
     <>
-      <HeaderControlWindow />
-      <Header />
+      <MantineProvider theme={theme}>
+        <HeaderControlWindow />
+        <Header />
+      </MantineProvider>
     </>
   );
 }

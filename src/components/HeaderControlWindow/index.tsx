@@ -1,11 +1,10 @@
 import { FC, useMemo } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { headerControlWindowStyle } from "@/styles/headerControlWindow.css.ts";
-import Close from "@/assets/svg/16/Cross.svg?react";
-import Line from "@/assets/svg/16/Line.svg?react";
-import Rollup from "@/assets/svg/16/Window.svg?react";
 import { WindowControl, WindowControlMock } from "@/utils/WindowControl.ts";
 import { isTauri } from "@tauri-apps/api/core";
+import { GhostButton } from "@/components/Button";
+import { data } from "@/components/HeaderControlWindow/data.tsx";
 
 export const HeaderControlWindow: FC = () => {
   const env = isTauri() && getCurrentWindow();
@@ -21,9 +20,9 @@ export const HeaderControlWindow: FC = () => {
   if (!windowInstance) return null;
   return (
     <div className={headerControlWindowStyle}>
-      <Line />
-      <Rollup />
-      <Close />
+      {data.map((icon, index) => (
+        <GhostButton key={index}>{icon}</GhostButton>
+      ))}
       {/*<Button onClick={async () => await windowInstance.minimize()}></Button>*/}
       {/*<Button></Button>*/}
       {/*<Button onClick={async () => await windowInstance.close()}></Button>*/}

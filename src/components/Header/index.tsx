@@ -4,8 +4,8 @@ import Logotype from "@svg/128/128x28 Logo.svg?react";
 import Settings from "@/assets/svg/16/Settings.svg?react";
 import Obsidian from "@/assets/svg/16/Obsidian.svg?react";
 import Random from "@svg/16/Random.svg?react";
-import { Button, GhostButton } from "@/components/Button";
-import { Chip, Flex, useMantineTheme } from "@mantine/core";
+import { Button } from "@/components/Button";
+import { Flex, useMantineTheme } from "@mantine/core";
 import { headerStyle } from "@/styles";
 
 export const Header: FC<ComponentProps<"div">> = ({ className, ...props }) => {
@@ -15,27 +15,18 @@ export const Header: FC<ComponentProps<"div">> = ({ className, ...props }) => {
   return (
     <header className={clsx(headerStyle, className)} {...props}>
       <Logotype />
-      <Button>
-        <Settings />
-      </Button>
-      <Chip>dwd</Chip>
-      <Flex direction={"row"} align={"center"} justify={"end"}>
-        <GhostButton>
+      <Flex direction={"row"} gap={"xs"} align={"center"} justify={"end"}>
+        <Button>
           <Settings />
-        </GhostButton>
-        <GhostButton>
+        </Button>
+        <Button>
           <Random />
-        </GhostButton>
+        </Button>
 
-        <GhostButton>
+        <Button>
           <Obsidian />
-        </GhostButton>
+        </Button>
       </Flex>
-      {/*<Controls ButtonLocal={GhostButton}>*/}
-      {/*  <Settings />*/}
-      {/*  <Random />*/}
-      {/*  <Obsidian />*/}
-      {/*</Controls>*/}
     </header>
   );
 };

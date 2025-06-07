@@ -9,7 +9,7 @@ export default style([
   justify.between,
   {
     minWidth: "min-content",
-    border: `1px solid ${vars.colors.white[200]} `,
+    border: `1px solid ${vars.colors.primary[1]} `,
     minHeight: 45,
     maxHeight: "max-content",
     borderRadius: 10,

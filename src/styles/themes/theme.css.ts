@@ -1,4 +1,4 @@
 import { themeToVars } from "@mantine/vanilla-extract";
-import dataTheme from "@/styles/themes/dataTheme.ts";
+import { theme } from "@/styles/themes/theme.ts";
 
-export const vars = themeToVars(dataTheme);
+export const vars = themeToVars(theme);

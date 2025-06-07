@@ -1,12 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { theme } from "@/styles/themes/contract.css.ts";
+import { activeColor } from "@/styles/Button/variables.css.ts";
 
 export const borderCss = style({
-  backgroundColor: theme.button.primary,
-
-  borderColor: theme.border.primary,
-
+  borderColor: activeColor,
   borderStyle: "solid",
-
   borderWidth: 1,
 });

@@ -12,6 +12,8 @@
   "app": {
     "windows": [
       {
+        "minWidth": 400,
+        "minHeight": 400,
         "decorations": false,
         "title": "zeroknote",
         "width": 800,

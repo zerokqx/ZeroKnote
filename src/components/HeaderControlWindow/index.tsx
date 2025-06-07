@@ -1,29 +1,31 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import { Button } from "@/components/Button";
 import { headerControlWindowStyle } from "@/styles/headerControlWindow.css.ts";
-import Close from "@svg/Cross.svg?react";
-import Line from "@svg/Line.svg?react";
-import Rollup from "@svg/Window.svg?react";
-import { WindowControlMock } from "@/utils/WindowControl.ts";
+import { WindowControl, WindowControlMock } from "@/utils/WindowControl.ts";
 import { isTauri } from "@tauri-apps/api/core";
+import { GhostButton } from "@/components/Button";
+import { data } from "@/components/HeaderControlWindow/data.tsx";
 
 export const HeaderControlWindow: FC = () => {
-  const d = getCurrentWindow();
-  //TODO Mock класса
-  const win = new WindowControlMock(d);
-  console.log(isTauri());
+  const env = isTauri() && getCurrentWindow();
+  const windowInstance = useMemo(() => {
+    if (env) {
+      return import.meta.env.DEV
+        ? new WindowControlMock(env)
+        : new WindowControl(env);
+    }
+    return null;
+  }, [env]);
+
+  if (!windowInstance) return null;
   return (
     <div className={headerControlWindowStyle}>
-      <Button onClick={async () => await win.minimize()}>
-        <Line />
-      </Button>
-      <Button>
-        <Rollup />
-      </Button>
-      <Button onClick={async () => await win.close()}>
-        <Close />
-      </Button>
+      {data.map((icon, index) => (
+        <GhostButton key={index}>{icon}</GhostButton>
+      ))}
+      {/*<Button onClick={async () => await windowInstance.minimize()}></Button>*/}
+      {/*<Button></Button>*/}
+      {/*<Button onClick={async () => await windowInstance.close()}></Button>*/}
     </div>
   );
 };

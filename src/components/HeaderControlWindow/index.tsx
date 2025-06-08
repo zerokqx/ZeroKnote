@@ -4,7 +4,7 @@ import { headerControlWindowStyle } from "@/styles/headerControlWindow.css.ts";
 import { WindowControl, WindowControlMock } from "@/utils/WindowControl.ts";
 import { isTauri } from "@tauri-apps/api/core";
 import { GhostButton } from "@/components/Button";
-import { data } from "@/components/HeaderControlWindow/data.tsx";
+import { headerControlData } from "@/components/HeaderControlWindow/headerControlData.ts";
 
 export const HeaderControlWindow: FC = () => {
   const env = isTauri() && getCurrentWindow();
@@ -16,16 +16,14 @@ export const HeaderControlWindow: FC = () => {
     }
     return null;
   }, [env]);
-
   if (!windowInstance) return null;
   return (
     <div className={headerControlWindowStyle}>
-      {data.map((icon, index) => (
-        <GhostButton key={index}>{icon}</GhostButton>
+      {headerControlData.map((Icon, index) => (
+        <GhostButton key={index}>
+          <Icon />
+        </GhostButton>
       ))}
-      {/*<Button onClick={async () => await windowInstance.minimize()}></Button>*/}
-      {/*<Button></Button>*/}
-      {/*<Button onClick={async () => await windowInstance.close()}></Button>*/}
     </div>
   );
 };

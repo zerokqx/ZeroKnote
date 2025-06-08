@@ -1,14 +1,14 @@
-import Settings from "@/assets/svg/16/Settings.svg?react";
-import Obsidian from "@/assets/svg/16/Obsidian.svg?react";
 import Random from "@svg/16/Random.svg?react";
 import { ComponentType, SVGProps } from "react";
+import { SiObsidian } from "react-icons/si";
+import { IoSettings } from "react-icons/io5";
 
 export const headerData: {
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
   onClick: () => void;
 }[] = [
   {
-    Icon: Settings,
+    Icon: IoSettings,
     onClick: () => console.log("Settings"),
   },
   {
@@ -16,7 +16,7 @@ export const headerData: {
     onClick: () => console.log("Random"),
   },
   {
-    Icon: Obsidian,
+    Icon: SiObsidian,
     onClick: () => console.log("Obsidian"),
   },
 ];

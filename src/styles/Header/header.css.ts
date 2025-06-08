@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { direction, flex, items, justify } from "@/styles/recipes/flex.css.ts";
 import { vars } from "@/styles/themes/theme.css.ts";
+import { paddingRoot } from "@/styles/global.css.ts";
 
 export default style([
   flex,
@@ -13,7 +14,7 @@ export default style([
     minHeight: 45,
     maxHeight: "max-content",
     borderRadius: 10,
-    padding: "5px 30px 5px 30px",
+    padding: paddingRoot,
     transition: "0.1s ease-in-out",
   },
 ]);

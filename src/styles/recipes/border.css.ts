@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { activeColor } from "@/styles/Button/variables.css.ts";
+import { vars } from "@/styles/themes";
 
 export const borderCss = style({
-  borderColor: activeColor,
+  borderColor: vars.colors.primary[1],
   borderStyle: "solid",
   borderWidth: 1,
 });

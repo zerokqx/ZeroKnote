@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { flex, items, justify } from "@/styles/recipes/flex.css.ts";
 import { borderCss } from "@/styles/recipes/border.css.ts";
 import { vars } from "@/styles/themes";
-import { buttonSize } from "@/styles/Button/variables.css.ts";
+import { buttonSize } from "@/styles/components-styles/Button/variables.css.ts";
 import { rem } from "@mantine/core";
 
 export default style([

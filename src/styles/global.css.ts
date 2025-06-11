@@ -28,6 +28,22 @@ export const paddingSyncWithControl = createGlobalVar(
   },
 );
 
+// Добавляем универсальный box-sizing
+globalStyle('*, *::before, *::after', {
+  boxSizing: 'border-box',
+});
+
+globalStyle('html, body', {
+  height: '100%',
+  margin: 0,
+  padding: 0,
+  overflow: 'hidden', // Убираем скролл на уровне страницы
+});
+
+globalStyle('body', {
+  padding: vars.spacing.sm,
+});
+
 globalStyle('#root', {
   vars: {
     [paddingSyncWithControlY]: vars.spacing.xs,
@@ -40,17 +56,12 @@ globalStyle('#root', {
   borderColor: vars.colors.primary[1],
   borderStyle: 'solid',
   borderWidth: 1,
-  padding: paddingSyncWithControl,
   display: 'flex',
-  width: 'auto',
+  width: '100%',
   flexDirection: 'column',
-  justifyContent: 'start',
+  padding: paddingSyncWithControl,
   gap: vars.spacing.sm,
-});
-
-globalStyle('body', {
-  height: '100vh',
-  padding: vars.spacing.sm,
+  // Убираем конфликтующие свойства
 });
 
 globalStyle(':root', {
@@ -60,6 +71,7 @@ globalStyle(':root', {
   fontWeight: 400,
   color: vars.colors.primary[9],
   fontSynthesis: 'style',
+  scrollBehavior: 'smooth',
   textRendering: 'optimizeLegibility',
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
@@ -72,7 +84,6 @@ globalStyle('main', {
   flexDirection: 'column',
   gap: vars.spacing.md,
   width: '100%',
-  height: '100%',
-  overflow: 'hidden',
-  overflowY: 'auto',
+  flex: '1 1 0',
+  minHeight: 0,
 });

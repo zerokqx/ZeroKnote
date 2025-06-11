@@ -15,9 +15,7 @@ export const RootThought: ThoughtRoot = ({ children, value }) => {
         gap="sm"
         style={{
           overflowY: 'auto',
-          height: '100%',
-          maxHeight: '100%',
-          minHeight: '100%',
+          overflowX: 'hidden',
         }}
       >
         {children}

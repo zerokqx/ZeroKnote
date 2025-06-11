@@ -1,8 +1,9 @@
-import clsx from "clsx";
-import { IButton } from "@/types/button.types.ts";
-import { createElement } from "react";
-import buttonGhostCss from "@/styles/Button/buttonGhost.css.ts";
-import { buttonBase } from "@/styles";
+import clsx from 'clsx';
+import { createElement } from 'react';
+
+import { buttonBase } from '@/styles';
+import buttonGhostCss from '@/styles/components-styles/button/buttonGhost.css.ts';
+import type { IButton } from '@/types/button.types.ts';
 
 export const Button: IButton = ({ children, className, ...props }) => {
   return (

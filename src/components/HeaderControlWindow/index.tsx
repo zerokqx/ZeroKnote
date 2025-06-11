@@ -1,29 +1,29 @@
-import { FC, useMemo } from "react";
-import { getCurrentWindow } from "@tauri-apps/api/window";
-import { WindowControl, WindowControlMock } from "@/utils/WindowControl.ts";
-import { isTauri } from "@tauri-apps/api/core";
-import { GhostButton } from "@/components/Button";
-import { headerControlData } from "@/components/HeaderControlWindow/headerControlData.ts";
-import { Flex, Group } from "@mantine/core";
-import { iconStyle } from "@/styles";
-import { paddingStyle } from "@/styles/headerControlWindow.css.ts";
+import { Flex, Group } from '@mantine/core';
+import { isTauri } from '@tauri-apps/api/core';
+import { getCurrentWindow, Window } from '@tauri-apps/api/window';
+import { useMemo } from 'react';
 
-export const HeaderControlWindow: FC = () => {
+import { GhostButton } from '@/components/Button';
+import { headerControlData } from '@/components/HeaderControlWindow/headerControlData.ts';
+import { iconStyle } from '@/styles';
+import { paddingSyncWithControl } from '@/styles/global.css.ts';
+import { WindowControl, WindowControlMock } from '@/utils/WindowControl.ts';
+
+export const HeaderControlWindow = () => {
   const env = isTauri() && getCurrentWindow();
   const windowInstance = useMemo(() => {
-    if (env) {
+    if (env instanceof Window) {
       return import.meta.env.DEV
         ? new WindowControlMock(env)
         : new WindowControl(env);
     }
     return null;
   }, [env]);
-  if (!windowInstance) return null;
   return (
-    <Flex className={paddingStyle} direction={"row"} justify={"flex-end"}>
-      <Group gap={"xs"}>
-        {headerControlData.map((Icon, index) => (
-          <GhostButton key={index}>
+    <Flex p={paddingSyncWithControl} direction="row" justify="flex-end">
+      <Group gap="xs">
+        {headerControlData.map((Icon) => (
+          <GhostButton key={`${Icon}`}>
             <Icon className={iconStyle} />
           </GhostButton>
         ))}

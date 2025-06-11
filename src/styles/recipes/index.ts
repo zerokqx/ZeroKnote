@@ -1,2 +1,2 @@
-export * from "./flex.css.ts";
-export * from "./border.css.ts";
+export * from './flex.css.ts';
+export { borderCss } from './border.css.ts';

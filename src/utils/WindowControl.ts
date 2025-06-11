@@ -1,12 +1,12 @@
-interface IWindow {
+interface IsWindow {
   close: () => Promise<void>;
   minimize: () => Promise<void>;
 }
 
 export class WindowControl {
-  constructor(private window: IWindow) {}
+  constructor(private window: IsWindow) {}
 
-  async close(): ReturnType<IWindow["close"]> {
+  async close(): ReturnType<IsWindow['close']> {
     return await this.window.close();
   }
 
@@ -16,12 +16,12 @@ export class WindowControl {
 }
 
 export class WindowControlMock extends WindowControl {
-  constructor(window: IWindow) {
+  constructor(window: IsWindow) {
     super(window);
   }
 
-  async close(): ReturnType<IWindow["close"]> {
-    console.log("Close");
+  async close(): ReturnType<IsWindow['close']> {
+    console.log('Close');
     return Promise.resolve();
   }
 }

@@ -1,23 +1,29 @@
-import { ComponentProps, FC } from "react";
-import clsx from "clsx";
-import Logotype from "@svg/128/128x28 Logo.svg?react";
-import { Button } from "@/components/Button";
-import { Group } from "@mantine/core";
-import { headerStyle, iconStyle } from "@/styles";
-import { headerData } from "@/components/Header/data.ts";
+import { Group } from '@mantine/core';
+import clsx from 'clsx';
+import { type ComponentProps, type FC, memo } from 'react';
 
-export const Header: FC<ComponentProps<"div">> = ({ className, ...props }) => {
-  return (
-    <header className={clsx(headerStyle, className)} {...props}>
-      {/*<AdaptiveLogotype />*/}
-      <Logotype />
-      <Group gap={"xs"} wrap={"nowrap"}>
-        {headerData.map((buttonData, index) => (
-          <Button onClick={buttonData.onClick} key={index}>
-            <buttonData.Icon className={iconStyle} />
-          </Button>
-        ))}
-      </Group>
-    </header>
-  );
-};
+import { Button } from '@/components/Button';
+import { AdaptiveLogotype } from '@/components/Header/AdaptiveLogotype.tsx';
+import { headerData } from '@/components/Header/data.ts';
+import { headerStyle, iconStyle } from '@/styles';
+
+export const Header: FC<ComponentProps<'div'>> = memo(
+  ({ className, ...props }) => {
+    return (
+      <header className={clsx(headerStyle, className)} {...props}>
+        <AdaptiveLogotype />
+
+        <Group gap="xs" wrap="nowrap">
+          {headerData.map((buttonData) => (
+            <Button
+              onClick={buttonData.onClick}
+              key={`${buttonData.Icon}-${buttonData.Icon}`}
+            >
+              <buttonData.Icon className={iconStyle} />
+            </Button>
+          ))}
+        </Group>
+      </header>
+    );
+  },
+);

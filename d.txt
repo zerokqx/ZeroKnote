@@ -1,0 +1,131 @@
+
+ Running skott from current directory: zeroknote
+
+ Processed 47 files (575.366ms)
+
+ ✖ Circular dependencies were found. Graph is not Acyclic.
+
+  madge.config.js
+  postcss.config.cjs
+  sandbox.ts
+  src/
+   └── App.tsx
+   └── components/
+     └── HeaderControlWindow/
+       └── index.tsx
+       └── headerControlData.ts
+     └── Header/
+       └── index.tsx
+       └── data.ts
+       └── AdaptiveLogotype.tsx
+     └── Thought/
+       └── index.tsx
+       └── Thought.tsx
+       └── ThoughtList.tsx
+     └── Button/
+       └── index.tsx
+   └── styles/
+     └── themes/
+       └── light/
+         └── theme.ts
+         └── index.ts
+         └── theme.css.ts
+         └── dataTheme.ts
+       └── index.ts
+     └── index.ts
+     └── global.css.ts
+     └── components-styles/
+       └── button/
+         └── buttonGhost.css.ts
+         └── index.ts
+         └── button.css.ts
+         └── variables.css.ts
+       └── header/
+         └── index.ts
+         └── header.css.ts
+         └── control.css.ts
+       └── thought/
+         └── thought.css.ts
+     └── recipes/
+       └── flex.css.ts
+       └── border.css.ts
+       └── index.ts
+     └── sprinkers/
+       └── index.ts
+       └── flex.css.ts
+       └── logotype.css.ts
+     └── icon.css.ts
+     └── breakpoints.ts
+   └── types/
+     └── thought/
+       └── thought.types.ts
+       └── thoughtList.types.ts
+       └── index.ts
+     └── button.types.ts
+     └── index.ts
+     └── themeElemet.types.ts
+   └── utils/
+     └── WindowControl.ts
+     └── gradationColors.ts
+   └── contexts/
+     └── Thought.context.ts
+   └── main.tsx
+  vite.config.ts
+
+Third-party dependencies:
+
+  @mantine/core (imports=9)
+  @mantine/hooks (imports=1)
+  @mantine/vanilla-extract (imports=1)
+  @tauri-apps/api (imports=1)
+  @vanilla-extract/css (imports=9)
+  @vanilla-extract/recipes (imports=1)
+  @vanilla-extract/sprinkles (imports=2)
+  @vanilla-extract/vite-plugin (imports=1)
+  @vitejs/plugin-react (imports=1)
+  chroma-js (imports=1)
+  clsx (imports=2)
+  react (imports=10)
+  react-dom (imports=1)
+  react-icons (imports=2)
+  vite (imports=1)
+  vite-plugin-svgr (imports=1)
+
+ Note: production dependencies used elsewhere than in the currently targeted source files (e.g. configuration files not analyzed by skott) might be wrongly  reported as 'unused'. Please double check their potential use in other places than source files before removing them. You might also want to move them as 'devDependencies' if that is the case.
+             
+ Found 16 third-party dependencies (dev/prod) that might be unused (check message just above) (3713.815ms) 
+
+  ➡️ @tauri-apps/plugin-opener
+  ➡️ @types/chroma-js
+  ➡️ @types/node
+  ➡️ @vanilla-extract/css-utils
+  ➡️ react-hook-form
+  ➡️ react-use
+  ➡️ zod
+  ➡️ zustand
+  ➡️ @svgr/plugin-svgo
+  ➡️ madge
+  ➡️ postcss
+  ➡️ postcss-preset-mantine
+  ➡️ postcss-simple-vars
+  ➡️ prettier
+  ➡️ skott
+  ➡️ svgo
+
+ Unused files found:
+
+ ➡️ madge.config.js
+
+ ➡️ postcss.config.cjs
+
+ ➡️ sandbox.ts
+
+ ➡️ src/contexts/Thought.context.ts
+
+ ➡️ src/types/themeElemet.types.ts
+
+ ➡️ vite.config.ts
+
+ Warning: files are marked as unused based on source code analysis.
+ They might be exported through package.json or used through other mechanisms not analyzed by skott.
+ Please double check their potential use before removing them.

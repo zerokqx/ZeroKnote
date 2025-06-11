@@ -1,13 +1,14 @@
-import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
-import { mediaQueries } from "@/styles/breakpoints.ts";
+import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
+
+import { mediaQueries } from '@/styles/breakpoints.ts';
 
 export const d = defineProperties({
   conditions: mediaQueries,
-  responsiveArray: ["mobile", "tablet", "desktop"],
+  responsiveArray: ['mobile', 'tablet', 'desktop'],
 
-  defaultCondition: "mobile",
+  defaultCondition: 'mobile',
   properties: {
-    display: ["none", "block"],
+    display: ['none', 'block'],
   },
 });
 

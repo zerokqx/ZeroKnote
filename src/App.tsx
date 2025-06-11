@@ -24,11 +24,16 @@ function App() {
       <Header />
       <main>
         <RootThought value={{ time: true }}>
-          <RootThought.List>
-            <RootThought.Thought thought={thought} />
-          </RootThought.List>
+          {Array.from({ length: 10 }, (_, i) => (
+            <RootThought.Thought key={i} thought={thought} />
+          ))}
         </RootThought>
-        <input />
+        <input
+          style={{
+            flexShrink: 0, // Предотвращаем сжатие input
+            minHeight: 'auto',
+          }}
+        />
       </main>
     </MantineProvider>
   );

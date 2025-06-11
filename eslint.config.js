@@ -12,6 +12,10 @@ import unusedImports from "eslint-plugin-unused-imports";
 export default [
   {
     ignores: [
+      "*.config.*",
+      "sandbox.*",
+      "skott.js",
+      "src-tauri",
       "dist",
       "build",
       "node_modules",

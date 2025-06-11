@@ -68,8 +68,11 @@ globalStyle(':root', {
 
 globalStyle('main', {
   display: 'flex',
+  justifyContent: 'space-between',
   flexDirection: 'column',
   gap: vars.spacing.md,
-  width: 'inherit',
-  height: 'inherit',
+  width: '100%',
+  height: '100%',
+  overflow: 'hidden',
+  overflowY: 'auto',
 });

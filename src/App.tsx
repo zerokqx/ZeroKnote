@@ -24,9 +24,9 @@ function App() {
       <Header />
       <main>
         <RootThought value={{ time: true }}>
-          <RootThought.List>
+          {Array.from({ length: 10 }, (_, i) => (
             <RootThought.Thought thought={thought} />
-          </RootThought.List>
+          ))}
         </RootThought>
         <input />
       </main>

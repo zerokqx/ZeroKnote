@@ -28,16 +28,8 @@ export const paddingSyncWithControl = createGlobalVar(
   },
 );
 
-// Добавляем универсальный box-sizing
-globalStyle('*, *::before, *::after', {
-  boxSizing: 'border-box',
-});
-
 globalStyle('html, body', {
   height: '100%',
-  margin: 0,
-  padding: 0,
-  overflow: 'hidden', // Убираем скролл на уровне страницы
 });
 
 globalStyle('body', {
@@ -61,7 +53,6 @@ globalStyle('#root', {
   flexDirection: 'column',
   padding: paddingSyncWithControl,
   gap: vars.spacing.sm,
-  // Убираем конфликтующие свойства
 });
 
 globalStyle(':root', {

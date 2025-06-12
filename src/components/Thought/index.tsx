@@ -2,6 +2,7 @@ import { Flex } from '@mantine/core';
 
 import { Thought } from '@/components/Thought/Thought.tsx';
 import { ThoughtContext } from '@/contexts/Thought.context.ts';
+import { thoughtList } from '@/styles/components-styles/thought/thought.css.ts';
 import type { ThoughtRoot } from '@/types/thought/thought.types.ts';
 
 export const RootThought: ThoughtRoot = ({ children, value }) => {
@@ -13,10 +14,7 @@ export const RootThought: ThoughtRoot = ({ children, value }) => {
         direction="column"
         justify="flex-end"
         gap="sm"
-        style={{
-          overflowY: 'auto',
-          overflowX: 'hidden',
-        }}
+        className={thoughtList}
       >
         {children}
       </Flex>

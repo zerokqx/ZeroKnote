@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@/styles/themes/light';
+import { vars } from '@/styles/themes';
 
 export const iconStyle = style({
   width: 16,
   height: 'auto',
-  fill: vars.colors.primary[10],
+  fill: vars.colors.primary[9],
   aspectRatio: '1 / 1',
 });

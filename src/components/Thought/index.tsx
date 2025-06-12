@@ -1,22 +1,24 @@
-import { Flex } from '@mantine/core';
+import 'react-virtualized/styles.css';
+import { Stack } from '@mantine/core';
+import clsx from 'clsx';
 
 import { Thought } from '@/components/Thought/Thought.tsx';
+import { VirtualList } from '@/components/Thought/VirtualList.tsx';
 import { thoughtList } from '@/styles/components-styles/thought/thought.css.ts';
 import type { ThoughtRoot } from '@/types/thought/thought.types.ts';
 
-export const RootThought: ThoughtRoot = ({ children }) => {
+export const RootThought: ThoughtRoot = ({ children, className, ...props }) => {
   return (
-    <Flex
-      w="100%"
-      h="100%"
-      direction="column"
-      justify="flex-end"
+    <Stack
       gap="sm"
-      className={thoughtList}
+      justify="end"
+      className={clsx(thoughtList, className)}
+      {...props}
     >
       {children}
-    </Flex>
+    </Stack>
   );
 };
 
 RootThought.Thought = Thought;
+RootThought.VList = VirtualList;

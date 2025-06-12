@@ -4,8 +4,6 @@ import { thoughtStyle } from '@/styles/components-styles/thought/thought.css.ts'
 import type { ThoughtRoot } from '@/types';
 
 export const Thought: ThoughtRoot['Thought'] = ({ thought }) => {
-  // const state = useGetThoughtState();
-  // const state = useThoughtStore().settings;
   return (
     <Container
       style={{

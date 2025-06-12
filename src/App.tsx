@@ -13,27 +13,22 @@ const thought: TThought = {
   name: 'Глубокие размышления',
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
-  content:
-    'Жизнь — это сложный и многогранный путь, который требует осознанности и внутреннего роста. Каждый день приносит новые вызовы и возможности, заставляя нас адаптироваться и находить баланс между желанием двигаться вперед и необходимостью оставаться в гармонии с собой. Мысли, словно поток, наполняют сознание, порой приводя к инсайтам, которые меняют наше мировоззрение. Остается только научиться прислушиваться к себе и осознавать, что именно здесь и сейчас мы формируем свое будущее.',
+  content: 'dwd',
 };
 
 function App() {
+  const thoughts: TThought[] = Array.from({ length: 200000 }, (_, i) => ({
+    ...thought,
+    id: i.toString(),
+  }));
+
   return (
     <MantineProvider theme={theme}>
       <HeaderControlWindow />
       <Header />
       <main>
-        <RootThought>
-          {Array.from({ length: 200 }, (_, i) => (
-            <RootThought.Thought key={i} thought={thought} />
-          ))}
-        </RootThought>
-        <input
-          style={{
-            flexShrink: 0, // Предотвращаем сжатие input
-            minHeight: 'auto',
-          }}
-        />
+        <RootThought.VList thoughts={thoughts} />
+        <input />
       </main>
     </MantineProvider>
   );

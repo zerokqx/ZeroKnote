@@ -1,24 +1,20 @@
 import { Flex, Group } from '@mantine/core';
-import { isTauri } from '@tauri-apps/api/core';
-import { getCurrentWindow, Window } from '@tauri-apps/api/window';
-import { useMemo } from 'react';
 
 import { GhostButton } from '@/components/Button';
 import { headerControlData } from '@/components/HeaderControlWindow/headerControlData.ts';
 import { iconStyle } from '@/styles';
 import { paddingSyncWithControl } from '@/styles/global.css.ts';
-import { WindowControl, WindowControlMock } from '@/utils/WindowControl.ts';
 
 export const HeaderControlWindow = () => {
-  const env = isTauri() && getCurrentWindow();
-  const windowInstance = useMemo(() => {
-    if (env instanceof Window) {
-      return import.meta.env.DEV
-        ? new WindowControlMock(env)
-        : new WindowControl(env);
-    }
-    return null;
-  }, [env]);
+  // const env = isTauri() && getCurrentWindow();
+  // const windowInstance = useMemo(() => {
+  //   if (env instanceof Window) {
+  //     return import.meta.env.DEV
+  //       ? new WindowControlMock(env)
+  //       : new WindowControl(env);
+  //   }
+  //   return null;
+  // }, [env]);
   return (
     <Flex
       p={paddingSyncWithControl}

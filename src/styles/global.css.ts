@@ -49,6 +49,7 @@ globalStyle('#root', {
   borderStyle: 'solid',
   borderWidth: 1,
   display: 'flex',
+  alignItems: 'center',
   width: '100%',
   flexDirection: 'column',
   padding: paddingSyncWithControl,

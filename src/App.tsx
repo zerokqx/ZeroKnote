@@ -23,8 +23,8 @@ function App() {
       <HeaderControlWindow />
       <Header />
       <main>
-        <RootThought value={{ time: true }}>
-          {Array.from({ length: 10 }, (_, i) => (
+        <RootThought>
+          {Array.from({ length: 200 }, (_, i) => (
             <RootThought.Thought key={i} thought={thought} />
           ))}
         </RootThought>

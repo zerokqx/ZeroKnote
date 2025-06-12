@@ -1,7 +1,5 @@
 import type { FC, ReactNode } from 'react';
 
-import type { TThoughtContext } from '@/types/contexts/thought.types.ts';
-
 export interface TThought {
   id: string;
   name: string;
@@ -16,6 +14,5 @@ export interface ThoughtComputed {
 
 export type ThoughtRoot = FC<{
   children: ReactNode;
-  value: TThoughtContext;
 }> &
   ThoughtComputed;

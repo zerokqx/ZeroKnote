@@ -1,12 +1,14 @@
 import '@mantine/core/styles.css';
 
 import { MantineProvider } from '@mantine/core';
+import { MotionConfig } from 'motion/react';
 
 import { Header } from '@/components/Header';
 import { HeaderControlWindow } from '@/components/HeaderControlWindow';
-import { RootThought } from '@/components/Thought';
+import { VirtualList } from '@/components/Thought/VirtualList.tsx';
 import { theme } from '@/styles/themes/light/theme.ts';
 import type { TThought } from '@/types/thought/thought.types.ts';
+
 
 const thought: TThought = {
   id: '2',
@@ -17,7 +19,7 @@ const thought: TThought = {
 };
 
 function App() {
-  const thoughts: TThought[] = Array.from({ length: 200000 }, (_, i) => ({
+  const thoughts: TThought[] = Array.from({ length: 100 }, (_, i) => ({
     ...thought,
     id: i.toString(),
   }));
@@ -25,11 +27,13 @@ function App() {
   return (
     <MantineProvider theme={theme}>
       <HeaderControlWindow />
-      <Header />
-      <main>
-        <RootThought.VList thoughts={thoughts} />
-        <input />
-      </main>
+      <MotionConfig transition={{ duration: 0.5 }}>
+        <Header />
+        <main>
+          <VirtualList thoughts={thoughts} />
+          <input />
+        </main>
+      </MotionConfig>
     </MantineProvider>
   );
 }

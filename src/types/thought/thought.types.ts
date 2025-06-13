@@ -10,8 +10,7 @@ export interface TThought {
 }
 
 export interface ThoughtComputed {
-  VList: FC<ComponentProps<'div'> & { thoughts: TThought[] }>;
-  Thought: FC<{ thought: TThought }>;
+  Thought: FC<{ thought: TThought } & ComponentProps<'div'>>;
 }
 
 export type ThoughtRoot = FC<

@@ -18,11 +18,11 @@ export const HeaderControlWindow = () => {
   return (
     <Flex
       p={paddingSyncWithControl}
-      w="100%"
-      direction="row"
-      justify="flex-end"
+      w='100%'
+      direction='row'
+      justify='flex-end'
     >
-      <Group gap="xs">
+      <Group gap='xs'>
         {headerControlData.map((Icon) => (
           <GhostButton key={`${Icon}`}>
             <Icon className={iconStyle} />

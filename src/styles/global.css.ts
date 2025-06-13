@@ -25,7 +25,7 @@ export const paddingSyncWithControl = createGlobalVar(
     syntax: '<length>',
     inherits: false,
     initialValue: `${paddingSyncWithControlY} ${paddingSyncWithControlX}`,
-  },
+  }
 );
 
 globalStyle('html, body', {

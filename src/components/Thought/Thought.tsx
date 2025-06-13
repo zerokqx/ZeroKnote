@@ -1,11 +1,10 @@
 import { Container, Text } from '@mantine/core';
 import clsx from 'clsx';
-import { memo } from 'react';
 
 import { thoughtStyle } from '@/styles/components-styles/thought/thought.css.ts';
 import type { ThoughtRoot } from '@/types';
 
-export const Thought: ThoughtRoot['Thought'] = memo(({ thought, ...props }) => {
+export const Thought: ThoughtRoot['Thought'] = ({ thought, ...props }) => {
   const { style, className, ...args } = props;
 
   return (
@@ -32,6 +31,6 @@ export const Thought: ThoughtRoot['Thought'] = memo(({ thought, ...props }) => {
       </Text>
     </Container>
   );
-});
+};
 
 Thought.displayName = 'Thought';

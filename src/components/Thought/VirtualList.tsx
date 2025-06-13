@@ -1,17 +1,13 @@
 import { useMantineTheme } from '@mantine/core';
-import type { VirtualItem } from '@tanstack/react-virtual';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { type ComponentProps, type FC, memo, useMemo, useRef } from 'react';
 
 import { CelindrResize } from '@/components/Thought/CelindrResize.tsx';
-import type { TThought } from '@/types';
+import type { ThoughtVListItem, TThought } from '@/types';
 
 import { RootThought } from './RootThought';
 
-const VItem = memo<{
-  item: VirtualItem;
-  thought: TThought;
-}>(({ item, thought }) => (
+const VItem: ThoughtVListItem = memo(({ item, thought }) => (
   <div
     key={item.key}
     data-index={item.index}

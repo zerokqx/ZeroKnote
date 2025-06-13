@@ -16,10 +16,17 @@ export const CelindrResize: FC<{ children: ReactNode }> = memo(
             height: 'max-content',
             width: '100%',
             opacity: 1,
+
             transformOrigin: 'center',
           }}
-          initial={{ transform: 'scaleX(0.9)', opacity: 0 }}
-          animate={{ transform: 'scaleX(1)', opacity: 1 }}
+          initial={{
+            transform: 'scaleX(0.9)',
+            filter: 'blur(53px)',
+          }}
+          animate={{
+            transform: 'scaleX(1)',
+            filter: 'blur(0px)',
+          }}
         >
           {children}
         </m.div>

@@ -1,5 +1,5 @@
-import Random from '@svg/16/Random.svg?react';
 import type { ComponentType, SVGProps } from 'react';
+import { FaRandom } from 'react-icons/fa';
 import { IoSettings } from 'react-icons/io5';
 import { SiObsidian } from 'react-icons/si';
 
@@ -12,7 +12,7 @@ export const headerData: Array<{
     onClick: () => console.log('Settings'),
   },
   {
-    Icon: Random,
+    Icon: FaRandom,
     onClick: () => console.log('Random'),
   },
   {

@@ -12,5 +12,14 @@ export const thoughtStyle = style([
     minHeight: '70px',
     maxHeight: '100px',
     height: 'fit-content',
+    scrollSnapAlign: 'start',
   },
 ]);
+
+export const thoughtList = style({
+  overflowY: 'auto',
+  overflowX: 'hidden',
+  scrollBehavior: 'smooth',
+  scrollSnapType: 'y mandatory',
+  borderRadius: vars.radius.sm,
+});

@@ -1,8 +1,8 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "node:path";
-import vitePluginSvgr from "vite-plugin-svgr";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import react from '@vitejs/plugin-react';
+import path from 'node:path';
+import { defineConfig } from 'vite';
+import vitePluginSvgr from 'vite-plugin-svgr';
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
@@ -10,11 +10,11 @@ const host = process.env.TAURI_DEV_HOST;
 export default defineConfig(async () => ({
   plugins: [
     vanillaExtractPlugin(),
-    
+
     react(),
     vitePluginSvgr({
       svgrOptions: {
-        plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
+        plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
         svgoConfig: {
           floatPrecision: 2,
         },
@@ -27,11 +27,11 @@ export default defineConfig(async () => ({
   // 1. prevent vite from obscuring rust errors
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@styles": path.resolve(__dirname, "./src/styles"),
-      "@types": path.resolve(__dirname, "./src/types"),
-      "@components": path.resolve(__dirname, "./src/components"),
-      "@svg": path.resolve(__dirname, "./src/assets/svg/"),
+      '@': path.resolve(__dirname, 'src'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
+      '@types': path.resolve(__dirname, 'src/types'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@svg': path.resolve(__dirname, 'src/assets/svg/'),
     },
   },
   clearScreen: false,
@@ -42,14 +42,14 @@ export default defineConfig(async () => ({
     host: host || false,
     hmr: host
       ? {
-          protocol: "ws",
+          protocol: 'ws',
           host,
           port: 1421,
         }
       : undefined,
     watch: {
       // 3. tell vite to ignore watching `src-tauri`
-      ignored: ["**/src-tauri/**"],
+      ignored: ['**/src-tauri/**'],
     },
   },
 }));

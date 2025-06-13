@@ -25,19 +25,11 @@ export const paddingSyncWithControl = createGlobalVar(
     syntax: '<length>',
     inherits: false,
     initialValue: `${paddingSyncWithControlY} ${paddingSyncWithControlX}`,
-  },
+  }
 );
-
-// Добавляем универсальный box-sizing
-globalStyle('*, *::before, *::after', {
-  boxSizing: 'border-box',
-});
 
 globalStyle('html, body', {
   height: '100%',
-  margin: 0,
-  padding: 0,
-  overflow: 'hidden', // Убираем скролл на уровне страницы
 });
 
 globalStyle('body', {
@@ -57,11 +49,11 @@ globalStyle('#root', {
   borderStyle: 'solid',
   borderWidth: 1,
   display: 'flex',
+  alignItems: 'center',
   width: '100%',
   flexDirection: 'column',
   padding: paddingSyncWithControl,
   gap: vars.spacing.sm,
-  // Убираем конфликтующие свойства
 });
 
 globalStyle(':root', {

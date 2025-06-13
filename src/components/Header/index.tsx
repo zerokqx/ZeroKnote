@@ -12,8 +12,7 @@ export const Header: FC<ComponentProps<'div'>> = memo(
     return (
       <header className={clsx(headerStyle, className)} {...props}>
         <AdaptiveLogotype />
-
-        <Group gap="xs" wrap="nowrap">
+        <Group gap='xs' wrap='nowrap'>
           {headerData.map((buttonData) => (
             <Button
               onClick={buttonData.onClick}
@@ -25,5 +24,5 @@ export const Header: FC<ComponentProps<'div'>> = memo(
         </Group>
       </header>
     );
-  },
+  }
 );

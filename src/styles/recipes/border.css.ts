@@ -8,6 +8,23 @@ export const borderCss = recipe({
     borderWidth: 1,
   },
   variants: {
+    width: {
+      xs: {
+        borderWidth: 5,
+      },
+      sm: {
+        borderWidth: 10,
+      },
+      md: {
+        borderWidth: 30,
+      },
+      lg: {
+        borderWidth: 35,
+      },
+      xl: {
+        borderWidth: 40,
+      },
+    },
     borderStyle: {
       solid: {
         borderStyle: 'solid',

@@ -3,7 +3,7 @@ import chroma from 'chroma-js';
 
 export const gradationColors = (
   from: string,
-  to: string,
+  to: string
 ): MantineColorsTuple => {
   return chroma
     .scale([from, to])

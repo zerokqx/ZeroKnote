@@ -1,8 +1,8 @@
 import { style } from '@vanilla-extract/css';
 
-import { controlGap } from '@styles/global.css.ts';
 import { direction, flex, justify } from '@styles/recipes';
 
+import { controlGap } from '../../../../../global.css.ts';
 
 export default style([
   flex,

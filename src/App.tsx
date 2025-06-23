@@ -1,11 +1,12 @@
 import '@mantine/core/styles.css';
-
 import { MantineProvider } from '@mantine/core';
 import { MotionConfig } from 'motion/react';
 
+import { Button } from '@atoms';
 import { Header, HeaderControlWindow } from '@molecules';
 import { type TThought, VirtualList } from '@organisms';
 import { theme } from '@styles/themes/light/theme.ts';
+
 
 const thought: TThought = {
   id: '2',
@@ -25,7 +26,7 @@ function App() {
     <MantineProvider theme={theme}>
       <HeaderControlWindow />
       <MotionConfig transition={{ duration: 0.5 }}>
-        <Header />
+        <Header Button={Button} />
         <main>
           <VirtualList thoughts={thoughts} />
           <input />

@@ -1,5 +1,3 @@
-import type { ComponentProps, FC, ReactNode } from 'react';
+import type { ComponentProps, FC } from 'react';
 
-export type IButton = FC<
-  { children?: ReactNode | string } & ComponentProps<'button'>
->;
+export type IButton = FC<ComponentProps<'button'>>;

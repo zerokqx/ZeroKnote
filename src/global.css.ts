@@ -1,6 +1,6 @@
 import { createGlobalVar, globalStyle } from '@vanilla-extract/css';
 
-import { vars } from './themes';
+import { vars } from '@styles/themes';
 
 export const controlGap = createGlobalVar('gap', {
   syntax: '<length>',

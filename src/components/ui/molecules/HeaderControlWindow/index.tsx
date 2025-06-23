@@ -1,8 +1,8 @@
 import { Flex, Group } from '@mantine/core';
 
 import { GhostButton } from '@atoms';
-import { paddingSyncWithControl } from '@styles/global.css.ts';
 
+import { paddingSyncWithControl } from '../../../../global.css.ts';
 import { iconStyle } from '../../../../styles';
 
 import { headerControlData } from './headerControlData.ts';

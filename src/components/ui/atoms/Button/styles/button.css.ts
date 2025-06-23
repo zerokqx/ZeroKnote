@@ -1,10 +1,9 @@
 import { rem } from '@mantine/core';
+import { borderCss, flex, items, justify } from '@styles/recipes';
+import { vars } from '@styles/themes';
 import { style } from '@vanilla-extract/css';
 
-import { buttonSize } from '@/styles/components-styles/button/variables.css.ts';
-import { borderCss } from '@/styles/recipes/border.css.ts';
-import { flex, items, justify } from '@/styles/recipes/flex.css.ts';
-import { vars } from '@/styles/themes/light';
+import { buttonSize } from './_variables.css.ts';
 
 export default style([
   flex,

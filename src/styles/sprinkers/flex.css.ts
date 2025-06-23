@@ -1,6 +1,5 @@
+import { mediaQueries } from '@styles/breakpoints';
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
-
-import { mediaQueries } from '@/styles/breakpoints.ts';
 
 const flexProperties = defineProperties({
   conditions: mediaQueries,

@@ -16,22 +16,49 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": [
-        "src/*"
+      "@atoms": [
+        "components/ui/atoms/index.ts"
       ],
-      "@styles/*": [
-        "/src/styles/*"
+      "@molecules": [
+        "components/ui/molecules/index.ts"
       ],
-      "@types/*": [
-        "/src/types/*"
+      "@organisms": [
+        "components/ui/organisms/index.ts"
+      ],
+      "@assets/*": [
+        "assets/*"
       ],
       "@components/*": [
-        "/src/components/*"
+        "components/*"
       ],
-      "@svg/*": [
-        "/src/assets/svg/*"
+      "@ui/*": [
+        "components/ui/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@contexts/*": [
+        "contexts/*"
+      ],
+      "@store/*": [
+        "store/*"
+      ],
+      "@types/*": [
+        "types/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@app": [
+        "App.tsx"
+      ],
+      "@root/*": [
+        "*"
       ]
     },
     /* Linting */

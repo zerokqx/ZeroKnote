@@ -3,12 +3,9 @@ import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
 import { MotionConfig } from 'motion/react';
 
-import { Header } from '@/components/Header';
-import { HeaderControlWindow } from '@/components/HeaderControlWindow';
-import { VirtualList } from '@/components/Thought/VirtualList.tsx';
-import { theme } from '@/styles/themes/light/theme.ts';
-import type { TThought } from '@/types/thought/thought.types.ts';
-
+import { Header, HeaderControlWindow } from '@molecules';
+import { type TThought, VirtualList } from '@organisms';
+import { theme } from '@styles/themes/light/theme.ts';
 
 const thought: TThought = {
   id: '2',

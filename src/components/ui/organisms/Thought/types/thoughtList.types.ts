@@ -1,7 +1,7 @@
 import type { VirtualItem } from '@tanstack/react-virtual';
 import type { FC, ReactNode } from 'react';
 
-import type { TThought } from '@/types';
+import type { TThought } from './thought.types.ts';
 
 export type TThoughtList = FC<{
   children: ReactNode;

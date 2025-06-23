@@ -1,11 +1,14 @@
+import { Button } from '@atoms';
 import { Group } from '@mantine/core';
 import clsx from 'clsx';
-import { type ComponentProps, type FC, memo } from 'react';
+import type { ComponentProps, FC } from 'react';
+import { memo } from 'react';
 
-import { Button } from '@/components/Button';
-import { AdaptiveLogotype } from '@/components/Header/AdaptiveLogotype.tsx';
-import { headerData } from '@/components/Header/data.ts';
-import { headerStyle, iconStyle } from '@/styles';
+import { iconStyle } from '../../../../styles';
+
+import { AdaptiveLogotype } from './AdaptiveLogotype.tsx';
+import { headerData } from './data.ts';
+import { headerStyle } from './styles';
 
 export const Header: FC<ComponentProps<'div'>> = memo(
   ({ className, ...props }) => {
@@ -24,5 +27,5 @@ export const Header: FC<ComponentProps<'div'>> = memo(
         </Group>
       </header>
     );
-  }
+  },
 );

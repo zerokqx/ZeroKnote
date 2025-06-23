@@ -1,6 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 
-import { vars } from '@/styles/themes/light';
+import { vars } from '../themes';
 
 export const borderCss = recipe({
   base: {

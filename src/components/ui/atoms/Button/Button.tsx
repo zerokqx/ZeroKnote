@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { createElement, memo } from 'react';
 
-import { buttonBase } from '@/styles';
-import buttonGhostCss from '@/styles/components-styles/button/buttonGhost.css.ts';
-import type { IButton } from '@/types/button.types.ts';
+import { buttonBase } from './styles';
+import buttonGhostCss from './styles/buttonGhost.css.ts';
+import type { IButton } from './types';
 
 export const Button: IButton = memo(({ children, className, ...props }) => {
   return (

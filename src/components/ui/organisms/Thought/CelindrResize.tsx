@@ -16,7 +16,6 @@ export const CelindrResize: FC<{ children: ReactNode }> = memo(
             height: 'max-content',
             width: '100%',
             opacity: 1,
-
             transformOrigin: 'center',
           }}
           initial={{

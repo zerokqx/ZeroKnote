@@ -22,16 +22,22 @@ export default defineConfig(async () => ({
     }),
   ],
 
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  //
-  // 1. prevent vite from obscuring rust errors
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@ui': path.resolve(__dirname, 'src/components/ui'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@contexts': path.resolve(__dirname, 'src/contexts'),
+      '@store': path.resolve(__dirname, 'src/store'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@types': path.resolve(__dirname, 'src/types'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@svg': path.resolve(__dirname, 'src/assets/svg/'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@app': path.resolve(__dirname, 'src/App.tsx'),
+      '@root': path.resolve(__dirname, 'src'),
+      '@atoms': path.resolve(__dirname, 'src/components/ui/atoms'),
+      '@molecules': path.resolve(__dirname, 'src/components/ui/molecules'),
+      '@organisms': path.resolve(__dirname, 'src/components/ui/organisms'),
     },
   },
   clearScreen: false,

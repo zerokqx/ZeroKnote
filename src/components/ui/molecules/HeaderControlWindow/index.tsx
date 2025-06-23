@@ -1,9 +1,11 @@
 import { Flex, Group } from '@mantine/core';
 
-import { GhostButton } from '@/components/Button';
-import { headerControlData } from '@/components/HeaderControlWindow/headerControlData.ts';
-import { iconStyle } from '@/styles';
-import { paddingSyncWithControl } from '@/styles/global.css.ts';
+import { GhostButton } from '@atoms';
+import { paddingSyncWithControl } from '@styles/global.css.ts';
+
+import { iconStyle } from '../../../../styles';
+
+import { headerControlData } from './headerControlData.ts';
 
 export const HeaderControlWindow = () => {
   // const env = isTauri() && getCurrentWindow();

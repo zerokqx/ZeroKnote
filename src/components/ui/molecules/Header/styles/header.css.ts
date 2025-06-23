@@ -1,8 +1,7 @@
 import { keyframes, style } from '@vanilla-extract/css';
 
-import { paddingSyncWithControl } from '@/styles/global.css.ts';
-import { borderCss } from '@/styles/recipes';
-import { direction, flex, items, justify } from '@/styles/recipes/flex.css.ts';
+import { paddingSyncWithControl } from '@styles/global.css';
+import { borderCss, direction, flex, items, justify } from '@styles/recipes';
 
 const expandWidth = keyframes({
   from: { width: '0%' },

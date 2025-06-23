@@ -2,30 +2,31 @@ import { useMantineTheme } from '@mantine/core';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { type ComponentProps, type FC, memo, useMemo, useRef } from 'react';
 
-import { CelindrResize } from '@/components/Thought/CelindrResize.tsx';
-import type { ThoughtVListItem, TThought } from '@/types';
+import { CelindrResize } from './CelindrResize.tsx';
+import { Thought } from './Thought.tsx';
+import type { ThoughtVListItem, TThought } from './types';
 
-import { RootThought } from './RootThought';
-
-const VItem: ThoughtVListItem = memo(({ item, thought }) => (
-  <div
-    key={item.key}
-    data-index={item.index}
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: `${item.size}px`,
-      transform: `translateY( ${item.start}px )`,
-      willChange: 'transform',
-    }}
-  >
-    <CelindrResize>
-      <RootThought.Thought thought={thought} />
-    </CelindrResize>
-  </div>
-));
+const VItem: ThoughtVListItem = memo(({ item, thought }) => {
+  return (
+    <div
+      key={item.key}
+      data-index={item.index}
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: `${item.size}px`,
+        transform: `translateY( ${item.start}px )`,
+        willChange: 'transform',
+      }}
+    >
+      <CelindrResize>
+        <Thought thought={thought} />
+      </CelindrResize>
+    </div>
+  );
+});
 
 export const VirtualList: FC<
   ComponentProps<'div'> & { thoughts: TThought[] }
@@ -58,8 +59,7 @@ export const VirtualList: FC<
         height: '100%',
         overflow: 'auto',
         width: '100%',
-        // Убираем scrollBehavior: 'smooth' при виртуализации
-        contain: 'strict', // CSS containment для лучшей производительности
+        contain: 'strict',
       }}
     >
       <div
@@ -67,7 +67,6 @@ export const VirtualList: FC<
           height: `${virtualizer.getTotalSize()}px`,
           width: '100%',
           position: 'relative',
-          // Добавляем contain для оптимизации
           contain: 'layout style paint',
         }}
       >

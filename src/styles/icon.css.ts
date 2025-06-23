@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@/styles/themes';
+import { vars } from './themes';
 
 export const iconStyle = style({
   width: 16,

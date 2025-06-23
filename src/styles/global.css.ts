@@ -1,6 +1,6 @@
 import { createGlobalVar, globalStyle } from '@vanilla-extract/css';
 
-import { vars } from '@/styles/themes/light';
+import { vars } from './themes';
 
 export const controlGap = createGlobalVar('gap', {
   syntax: '<length>',
@@ -25,7 +25,7 @@ export const paddingSyncWithControl = createGlobalVar(
     syntax: '<length>',
     inherits: false,
     initialValue: `${paddingSyncWithControlY} ${paddingSyncWithControlX}`,
-  }
+  },
 );
 
 globalStyle('html, body', {

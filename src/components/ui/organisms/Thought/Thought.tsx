@@ -1,8 +1,8 @@
 import { Container, Text } from '@mantine/core';
 import clsx from 'clsx';
 
-import { thoughtStyle } from '@/styles/components-styles/thought/thought.css.ts';
-import type { ThoughtRoot } from '@/types';
+import { thoughtStyle } from './styles/thought.css.ts';
+import type { ThoughtRoot } from './types';
 
 export const Thought: ThoughtRoot['Thought'] = ({ thought, ...props }) => {
   const { style, className, ...args } = props;
@@ -12,7 +12,6 @@ export const Thought: ThoughtRoot['Thought'] = ({ thought, ...props }) => {
       style={{
         flexGrow: 0,
         flexShrink: 0,
-        // Оптимизация для виртуализации
         contain: 'layout style paint',
         ...style,
       }}
@@ -24,7 +23,6 @@ export const Thought: ThoughtRoot['Thought'] = ({ thought, ...props }) => {
         lineClamp={4}
         fw={700}
         size='md'
-        // Добавляем contain для текста
         style={{ contain: 'layout style' }}
       >
         {thought.content}

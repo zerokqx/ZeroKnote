@@ -1,8 +1,8 @@
-import { Flex, Group } from '@mantine/core';
+import { GhostButton } from '@atoms/Button';
+import { C } from '@atoms/Controls';
+import { paddingSyncWithControl } from '@atoms/Controls/styles';
+import { Flex } from '@mantine/core';
 
-import { GhostButton } from '@atoms';
-
-import { paddingSyncWithControl } from '../../../../global.css.ts';
 import { iconStyle } from '../../../../styles';
 
 import { headerControlData } from './headerControlData.ts';
@@ -24,13 +24,13 @@ export const HeaderControlWindow = () => {
       direction='row'
       justify='flex-end'
     >
-      <Group gap='xs'>
+      <C>
         {headerControlData.map((Icon) => (
           <GhostButton key={`${Icon}`}>
             <Icon className={iconStyle} />
           </GhostButton>
         ))}
-      </Group>
+      </C>
     </Flex>
   );
 };

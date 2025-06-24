@@ -2,9 +2,9 @@ import { Container, Text } from '@mantine/core';
 import clsx from 'clsx';
 
 import { thoughtStyle } from './styles/thought.css.ts';
-import type { ThoughtRoot } from './types';
+import type { TThoughtComponent } from './types';
 
-export const Thought: ThoughtRoot['Thought'] = ({ thought, ...props }) => {
+export const Thought: TThoughtComponent = ({ thought, ...props }) => {
   const { style, className, ...args } = props;
 
   return (
@@ -30,5 +30,3 @@ export const Thought: ThoughtRoot['Thought'] = ({ thought, ...props }) => {
     </Container>
   );
 };
-
-Thought.displayName = 'Thought';

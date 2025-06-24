@@ -1,5 +1,5 @@
-import type { StackProps } from '@mantine/core';
-import type { ComponentProps, FC, ReactNode } from 'react';
+import type { Container } from '@mantine/core';
+import type { ComponentProps, FC } from 'react';
 
 export interface TThought {
   id: string;
@@ -9,13 +9,6 @@ export interface TThought {
   content: string;
 }
 
-export interface ThoughtComputed {
-  Thought: FC<{ thought: TThought } & ComponentProps<'div'>>;
-}
-
-export type ThoughtRoot = FC<
-  {
-    children: ReactNode;
-  } & StackProps
-> &
-  ThoughtComputed;
+export type TThoughtComponent = FC<
+  ComponentProps<typeof Container> & { thought: TThought }
+>;

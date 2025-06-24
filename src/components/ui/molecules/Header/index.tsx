@@ -1,11 +1,10 @@
-import { Group } from '@mantine/core';
+import type { IButton } from '@atoms/Button';
+import { C } from '@atoms/Controls';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { memo } from 'react';
 
-import { type IButton } from '@atoms';
-
-import { iconStyle } from '../../../../styles';
+import { iconStyle } from '@styles/icon.css.ts';
 
 import { AdaptiveLogotype } from './AdaptiveLogotype.tsx';
 import { headerData } from './data.ts';
@@ -16,7 +15,7 @@ export const Header: FC<{ Button: IButton } & ComponentProps<'header'>> = memo(
     return (
       <header className={clsx(headerStyle, className)} {...props}>
         <AdaptiveLogotype />
-        <Group gap='xs' wrap='nowrap'>
+        <C gap='xs' wrap='nowrap'>
           {headerData.map((buttonData) => (
             <ButtonLocal
               onClick={buttonData.onClick}
@@ -25,7 +24,7 @@ export const Header: FC<{ Button: IButton } & ComponentProps<'header'>> = memo(
               <buttonData.Icon className={iconStyle} />
             </ButtonLocal>
           ))}
-        </Group>
+        </C>
       </header>
     );
   },

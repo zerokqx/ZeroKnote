@@ -1,13 +1,11 @@
 import type { VirtualItem } from '@tanstack/react-virtual';
-import type { FC, ReactNode } from 'react';
+import type { ComponentProps, FC } from 'react';
 
 import type { TThought } from './thought.types.ts';
 
-export type TThoughtList = FC<{
-  children: ReactNode;
-}>;
-
-export type ThoughtVListItem = FC<{
+export interface TVItemProps {
   item: VirtualItem;
   thought: TThought;
-}>;
+}
+
+export type TVItem = FC<ComponentProps<'div'> & TVItemProps>;

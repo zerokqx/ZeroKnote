@@ -1,2 +1,2 @@
-export { VirtualList } from './VirtualList';
+export { VList } from './VList.tsx';
 export * from './types';

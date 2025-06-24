@@ -1,36 +1,11 @@
 import { useMantineTheme } from '@mantine/core';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { type ComponentProps, type FC, memo, useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
-import { CelindrResize } from './CelindrResize.tsx';
-import { Thought } from './Thought.tsx';
-import type { ThoughtVListItem, TThought } from './types';
+import type { TVList } from './types';
+import { VItem } from './VItem.tsx';
 
-const VItem: ThoughtVListItem = memo(({ item, thought }) => {
-  return (
-    <div
-      key={item.key}
-      data-index={item.index}
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: `${item.size}px`,
-        transform: `translateY( ${item.start}px )`,
-        willChange: 'transform',
-      }}
-    >
-      <CelindrResize>
-        <Thought thought={thought} />
-      </CelindrResize>
-    </div>
-  );
-});
-
-export const VirtualList: FC<
-  ComponentProps<'div'> & { thoughts: TThought[] }
-> = ({ thoughts }) => {
+export const VList: TVList = ({ thoughts, style, render, ...props }) => {
   const theme = useMantineTheme();
   const parentRef = useRef<HTMLDivElement | null>(null);
 
@@ -60,7 +35,9 @@ export const VirtualList: FC<
         overflow: 'auto',
         width: '100%',
         contain: 'strict',
+        ...style,
       }}
+      {...props}
     >
       <div
         style={{
@@ -70,10 +47,12 @@ export const VirtualList: FC<
           contain: 'layout style paint',
         }}
       >
-        {virtualItems.map((item) => (
-          <VItem key={item.key} item={item} thought={thoughts[item.index]} />
-        ))}
+        {virtualItems.map((item) =>
+          render(item.key, item, thoughts[item.index]),
+        )}
       </div>
     </div>
   );
 };
+
+VList.Item = VItem;

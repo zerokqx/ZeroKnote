@@ -1,32 +1,13 @@
 import { createGlobalVar, globalStyle } from '@vanilla-extract/css';
 
 import { vars } from '@styles/themes';
+import { paddingSyncWithControl } from '@ui/atoms/Controls/styles';
 
 export const controlGap = createGlobalVar('gap', {
   syntax: '<length>',
   inherits: false,
   initialValue: vars.spacing.sm,
 });
-
-const paddingSyncWithControlY = createGlobalVar('padding-sync-with-control-y', {
-  syntax: '<length>',
-  inherits: false,
-  initialValue: vars.spacing.xs,
-});
-const paddingSyncWithControlX = createGlobalVar('padding-sync-with-control-x', {
-  syntax: '<length>',
-  inherits: false,
-  initialValue: vars.spacing.md,
-});
-
-export const paddingSyncWithControl = createGlobalVar(
-  'padding-sync-with-control',
-  {
-    syntax: '<length>',
-    inherits: false,
-    initialValue: `${paddingSyncWithControlY} ${paddingSyncWithControlX}`,
-  },
-);
 
 globalStyle('html, body', {
   height: '100%',
@@ -37,11 +18,6 @@ globalStyle('body', {
 });
 
 globalStyle('#root', {
-  vars: {
-    [paddingSyncWithControlY]: vars.spacing.xs,
-    [paddingSyncWithControlX]: vars.spacing.md,
-    [paddingSyncWithControl]: `${paddingSyncWithControlY} ${paddingSyncWithControlX}`,
-  },
   height: '100%',
   borderRadius: vars.radius.sm,
   backgroundColor: vars.colors.primary[0],

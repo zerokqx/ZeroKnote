@@ -18,8 +18,8 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@atoms": [
-        "components/ui/atoms/index.ts"
+      "@atoms/*": [
+        "components/ui/atoms/*"
       ],
       "@molecules": [
         "components/ui/molecules/index.ts"
@@ -32,9 +32,6 @@
       ],
       "@components/*": [
         "components/*"
-      ],
-      "@ui/*": [
-        "components/ui/*"
       ],
       "@hooks/*": [
         "hooks/*"

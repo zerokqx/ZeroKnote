@@ -1,7 +1,7 @@
 import { createGlobalVar, globalStyle } from '@vanilla-extract/css';
 
+import { paddingSyncWithControl } from '@atoms/Controls/styles';
 import { vars } from '@styles/themes';
-import { paddingSyncWithControl } from '@ui/atoms/Controls/styles';
 
 export const controlGap = createGlobalVar('gap', {
   syntax: '<length>',

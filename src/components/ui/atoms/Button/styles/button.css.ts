@@ -1,7 +1,8 @@
 import { rem } from '@mantine/core';
+import { style } from '@vanilla-extract/css';
+
 import { borderCss, flex, items, justify } from '@styles/recipes';
 import { vars } from '@styles/themes';
-import { style } from '@vanilla-extract/css';
 
 import { buttonSize } from './_variables.css.ts';
 
@@ -12,10 +13,9 @@ export default style([
   borderCss(),
   {
     vars: {
-      [buttonSize]: '36px',
+      [buttonSize]: rem(36),
     },
-    aspectRatio: '1 / 1',
-    minHeight: 'auto',
+    minHeight: buttonSize,
     minWidth: buttonSize,
     borderRadius: vars.radius.xs,
     transition: '0.1s ease',

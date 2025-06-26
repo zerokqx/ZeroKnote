@@ -15,14 +15,14 @@ export const CelindrResize: FC<{ children: ReactNode }> = memo(
           style={{
             height: 'max-content',
             width: '100%',
-            opacity: 1,
             transformOrigin: 'center',
           }}
           initial={{
             transform: 'scaleX(0.9)',
-            filter: 'blur(53px)',
+            opacity: 0,
           }}
           animate={{
+            opacity: 1,
             transform: 'scaleX(1)',
             filter: 'blur(0px)',
           }}

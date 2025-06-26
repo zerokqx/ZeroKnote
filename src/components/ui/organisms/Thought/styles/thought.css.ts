@@ -1,6 +1,7 @@
+import { style } from '@vanilla-extract/css';
+
 import { borderCss } from '@styles/recipes';
 import { vars } from '@styles/themes';
-import { style } from '@vanilla-extract/css';
 
 export const thoughtStyle = style([
   borderCss(),

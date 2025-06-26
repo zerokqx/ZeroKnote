@@ -1,5 +1,5 @@
-import type { Container } from '@mantine/core';
-import type { ComponentProps, FC } from 'react';
+import type { FlexProps } from '@mantine/core';
+import type { FC } from 'react';
 
 export interface TThought {
   id: string;
@@ -9,6 +9,4 @@ export interface TThought {
   content: string;
 }
 
-export type TThoughtComponent = FC<
-  ComponentProps<typeof Container> & { thought: TThought }
->;
+export type TThoughtComponent = FC<FlexProps & { thought: TThought }>;

@@ -35,6 +35,7 @@ export const VList: TVList = ({ thoughts, style, render, ...props }) => {
         overflow: 'auto',
         width: '100%',
         contain: 'strict',
+        scrollbarWidth: 'none',
         ...style,
       }}
       {...props}

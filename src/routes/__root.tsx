@@ -1,24 +1,21 @@
 import '@mantine/core/styles.css';
 
 import { MantineProvider } from '@mantine/core';
-import { MotionConfig } from 'motion/react';
+import { createRootRoute, Outlet } from '@tanstack/react-router';
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Button } from '@atoms/Button';
 import { Header, HeaderControlWindow } from '@molecules';
 import { theme } from '@styles/themes/light/theme.ts';
 
 
-import { framerConfig } from './configs';
-
-function App() {
-  return (
+export const Route = createRootRoute({
+  component: () => (
     <MantineProvider theme={theme}>
       <HeaderControlWindow />
-      <MotionConfig {...framerConfig}>
-        <Header Button={Button} />
-      </MotionConfig>
+      <Header Button={Button} />
+      <Outlet />
+      <TanStackRouterDevtools />
     </MantineProvider>
-  );
-}
-
-export default App;
+  ),
+});

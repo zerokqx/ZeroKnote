@@ -1,8 +1,10 @@
+import tanstackRouter from '@tanstack/router-plugin/vite';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import { defineConfig } from 'vite';
 import vitePluginSvgr from 'vite-plugin-svgr';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
@@ -10,7 +12,10 @@ const host = process.env.TAURI_DEV_HOST;
 export default defineConfig(async () => ({
   plugins: [
     vanillaExtractPlugin(),
-
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true,
+    }),
     react(),
     vitePluginSvgr({
       svgrOptions: {
@@ -20,6 +25,7 @@ export default defineConfig(async () => ({
         },
       },
     }),
+    tsconfigPaths(),
   ],
 
   resolve: {

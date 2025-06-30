@@ -5,6 +5,7 @@ import { vars } from '@styles/themes';
 
 export const controlGap = createGlobalVar('gap', {
   syntax: '<length>',
+
   inherits: false,
   initialValue: vars.spacing.sm,
 });

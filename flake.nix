@@ -11,7 +11,6 @@
       pnpmBin = "${pkgs.pnpm_10}/bin/pnpm";
     in {
       devShells.${system}.default = pkgs.mkShell {
-        # env vars
         env = {
           RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
           p = pnpmBin;
@@ -21,13 +20,13 @@
           pkg-config
           gobject-introspection
           cargo
-          nodejs
-
           cargo-tauri
+          nodejs_24
         ];
 
-        buildInputs = with pkgs; [
-          at-spi2-atk
+            buildInputs = with pkgs; [
+              wrapGAppsHook3
+    glib-networking      at-spi2-atk
           atkmm
           cairo
           gdk-pixbuf
@@ -43,10 +42,15 @@
           pnpm_10
           xdg-utils
           libgtkflow3
-          nodejs_24
+glib-networking
         ];
 
         shellHook = ''
+         export GDK_BACKEND=x11
+  export WEBKIT_DISABLE_COMPOSITING_MODE=1
+  export GTK_THEME=Adwaita:dark  # или :light
+  export GDK_SCALE=1
+  export GDK_DPI_SCALE=1
           echo "🧠 ZEROKNOTE: shell initialized"
           clear
         '';

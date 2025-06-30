@@ -2,7 +2,6 @@ import '@mantine/core/styles.css';
 
 import { MantineProvider } from '@mantine/core';
 import { createRootRoute, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Button } from '@atoms/Button';
 import { Header, HeaderControlWindow } from '@molecules';
@@ -15,7 +14,7 @@ export const Route = createRootRoute({
       <HeaderControlWindow />
       <Header Button={Button} />
       <Outlet />
-      <TanStackRouterDevtools />
+      {/*<TanStackRouterDevtools />*/}
     </MantineProvider>
   ),
 });

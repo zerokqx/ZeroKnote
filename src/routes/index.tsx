@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { type TThought, VList } from '@organisms';
+import { Input } from '@atoms/Input';
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -8,7 +9,7 @@ export const Route = createFileRoute('/')({
 const thought: TThought = {
   id: '2',
   name: 'Глубокие размышления',
-  createdAt: new Date().toISOString(),
+  createdAt: new Date().toTimeString().slice(0, 5),
   updatedAt: new Date().toISOString(),
   content:
     'Иногда мне кажется, что весь наш мир — это фронтенд к чему-то, чего мы не видим. Как будто UI написан на React, всё красиво и интерактивно, но state мы не контролируем. Нам выдают props — имя, тело, окружение — и дальше мы просто живём. А логика, бэк, настоящая сущность — где-то в глубине, на уровне ядра. Может, на Rust. Может, на чём-то более фундаментальном, чем бинарный код. И чем больше ты рефлексируешь, тем чаще хочется сделать forceUpdate, потому что useEffect(() => {}, []) уже не триггерится. Мы застреваем в stale-рендерах себя. Пытаемся оптимизировать жизнь, но забываем про смысл.\n' +
@@ -30,7 +31,7 @@ function Index() {
           <VList.Item key={key} item={item} thought={thought} />
         )}
       />
-      <input />
+      <Input />
     </main>
   );
 }

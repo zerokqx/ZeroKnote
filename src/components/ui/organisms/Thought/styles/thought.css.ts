@@ -8,10 +8,9 @@ export const thoughtStyle = style([
   {
     borderRadius: vars.radius.sm,
     overflow: 'hidden',
-    padding: `${vars.spacing.sm} ${vars.spacing.xs} ${vars.spacing.sm} ${vars.spacing.md}`,
-    minHeight: '70px',
-    maxHeight: '100px',
-    height: 'fit-content',
+    //padding: `${vars.spacing.sm} ${vars.spacing.xs} ${vars.spacing.sm} ${vars.spacing.md}`,
+    //    minHeight: '70px',
+    //   maxHeight: '100px',
     scrollSnapAlign: 'start',
   },
 ]);

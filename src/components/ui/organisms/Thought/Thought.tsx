@@ -17,12 +17,21 @@ export const Thought: TThoughtComponent = ({ thought, ...props }) => {
       direction='row'
       justify='space-between'
       align='start'
+      mah={100}
+
+      mih={70}
       {...args}
+
+
+
     >
-      <Text lineClamp={4} fw={700} size='md'>
+      <Text lineClamp={3} fw={700} size='md'>
         {thought.content}
       </Text>
-      <Control />
+      <Flex flex={1} direction='column' justify={'space-between'} align={'center'} h='100%'>
+        <Control />
+        <Text style={{ textAlign: "end" }} w="100%">{thought.createdAt}</Text>
+      </Flex>
     </Flex>
   );
 };

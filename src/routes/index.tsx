@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-
+import "@styles/pages/main.css"
 import { type TThought, VList } from '@organisms';
 import { Input } from '@atoms/Input';
 

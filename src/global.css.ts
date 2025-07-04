@@ -1,7 +1,7 @@
 import { createGlobalVar, globalStyle } from '@vanilla-extract/css';
 
-import { paddingSyncWithControl } from '@atoms/Controls/styles';
 import { vars } from '@styles/themes';
+import { paddingSyncWithControl, paddingSyncWithControlY } from '@atoms/Controls/styles';
 
 export const controlGap = createGlobalVar('gap', {
   syntax: '<length>',
@@ -49,6 +49,7 @@ globalStyle(':root', {
 
 globalStyle('main', {
   display: 'flex',
+  // paddingBottom: paddingSyncWithControlY,
   justifyContent: 'space-between',
   flexDirection: 'column',
   gap: vars.spacing.md,

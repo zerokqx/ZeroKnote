@@ -47,13 +47,3 @@ globalStyle(':root', {
   WebkitTextSizeAdjust: '100%',
 });
 
-globalStyle('main', {
-  display: 'flex',
-  // paddingBottom: paddingSyncWithControlY,
-  justifyContent: 'space-between',
-  flexDirection: 'column',
-  gap: vars.spacing.md,
-  width: '100%',
-  flex: '1 1 0',
-  minHeight: 0,
-});

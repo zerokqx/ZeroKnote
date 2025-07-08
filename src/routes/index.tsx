@@ -3,6 +3,7 @@ import "@styles/pages/main.css"
 import { type TThought, VList } from '@organisms';
 import { Input } from '@atoms/Input';
 import { invoke } from '@tauri-apps/api/core';
+import { createTransaction } from '@utils/transaction';
 export const Route = createFileRoute('/')({
   component: Index,
 });
@@ -19,7 +20,8 @@ const thought: TThought = {
 };
 
 function Index() {
-  const i = invoke('read_thought_dir', { dir: "." }).then(x => console.log(x))
+  // const i = invoke('create_thought', { text: createTransaction("hello world") }).then(x => console.log(x))
+
   const thoughts: TThought[] = Array.from({ length: 100 }, (_, i) => ({
     ...thought,
     id: i.toString(),

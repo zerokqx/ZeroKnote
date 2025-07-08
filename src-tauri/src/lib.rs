@@ -1,9 +1,5 @@
 pub mod thought_manager;
 pub mod transaction;
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -14,8 +10,8 @@ pub fn run() {
         .plugin(devtools)
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
-            greet,
-            thought_manager::read_thought_dir
+            thought_manager::scan_dir,
+            thought_manager::create_thought
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

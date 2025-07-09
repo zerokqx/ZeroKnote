@@ -39,6 +39,9 @@
       "@contexts/*": [
         "contexts/*"
       ],
+      "@rustType/*":[
+        "../src-tauri/bindings/*"
+      ],
       "@store/*": [
         "store/*"
       ], "@types/*": [
@@ -64,6 +67,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
+    "src-tauri/bindings",
     "src"
   ],
   "references": [

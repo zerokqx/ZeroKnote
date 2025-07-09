@@ -20,7 +20,7 @@ const thought: TThought = {
 };
 
 function Index() {
-  // const i = invoke('create_thought', { text: createTransaction("hello world") }).then(x => console.log(x))
+  const i = invoke('create_thought', { text: createTransaction("hello world") }).then(x => console.log(x))
 
   const thoughts: TThought[] = Array.from({ length: 100 }, (_, i) => ({
     ...thought,

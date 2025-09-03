@@ -4,6 +4,9 @@ import { type TThought, VList } from '@organisms';
 import { Input } from '@atoms/Input';
 import { invoke } from '@tauri-apps/api/core';
 import { createTransaction } from '@utils/transaction';
+import { useState } from 'react';
+import { appDataDir } from '@tauri-apps/api/path';
+import { create, BaseDirectory } from '@tauri-apps/plugin-fs';
 export const Route = createFileRoute('/')({
   component: Index,
 });
@@ -20,8 +23,16 @@ const thought: TThought = {
 };
 
 function Index() {
-  const i = invoke('create_thought', { text: createTransaction("hello world") }).then(x => console.log(x))
-
+  const [inputText, setInputText] = useState('')
+  // const i = invoke('create_thought', { text: createTransaction("hello world") }).then(x => console.log(x))
+  console.log(inputText)
+  const x = async () => {
+    console.log(await appDataDir())
+    const f = await create("bar.txt", { baseDir: BaseDirectory.AppData });
+    await f.write(new TextEncoder().encode("Text"));
+    await f.close()
+  }
+  x()
   const thoughts: TThought[] = Array.from({ length: 100 }, (_, i) => ({
     ...thought,
     id: i.toString(),
@@ -34,7 +45,7 @@ function Index() {
           <VList.Item key={key} item={item} thought={thought} />
         )}
       />
-      <Input />
+      <Input onChange={(e) => setInputText(e.currentTarget.value)} />
     </main>
   );
 }

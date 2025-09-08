@@ -4,9 +4,14 @@ import { type TThought, VList } from '@organisms';
 import { Input } from '@atoms/Input';
 import { invoke } from '@tauri-apps/api/core';
 import { createTransaction } from '@utils/transaction';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { appDataDir } from '@tauri-apps/api/path';
 import { create, BaseDirectory } from '@tauri-apps/plugin-fs';
+import UseKey from 'react-use/lib/component/UseKey';
+import { getHotkeyHandler, useHotkeys } from '@mantine/hooks';
+import { createThought, createThoughtDir } from '@utils/instruments_for_thoughts';
+import { log } from 'console';
+
 export const Route = createFileRoute('/')({
   component: Index,
 });
@@ -23,20 +28,14 @@ const thought: TThought = {
 };
 
 function Index() {
-  const [inputText, setInputText] = useState('')
-  // const i = invoke('create_thought', { text: createTransaction("hello world") }).then(x => console.log(x))
-  console.log(inputText)
-  const x = async () => {
-    console.log(await appDataDir())
-    const f = await create("bar.txt", { baseDir: BaseDirectory.AppData });
-    await f.write(new TextEncoder().encode("Text"));
-    await f.close()
-  }
-  x()
+  const [valueInput, setValueInput] = useState("")
   const thoughts: TThought[] = Array.from({ length: 100 }, (_, i) => ({
     ...thought,
     id: i.toString(),
   }));
+  useEffect(() => {
+    createThoughtDir()
+  }, [])
   return (
     <main>
       <VList
@@ -45,7 +44,16 @@ function Index() {
           <VList.Item key={key} item={item} thought={thought} />
         )}
       />
-      <Input onChange={(e) => setInputText(e.currentTarget.value)} />
+      <Input value={valueInput} onChange={(e) => setValueInput(e.target.value)} onKeyDown={getHotkeyHandler(
+        [
+
+          ["Enter", (e) => {
+            createThought(e.target.value)
+            setValueInput("")
+          }]
+        ]
+
+      )} />
     </main>
   );
 }

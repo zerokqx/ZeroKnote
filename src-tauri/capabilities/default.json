@@ -11,6 +11,10 @@
     "core:window:allow-close",
     "opener:default",
     "fs:default",
-    "fs:allow-app-write"
+    "fs:allow-app-write",
+    "fs:allow-app-write-recursive",
+
+    "fs:allow-appdata-read", 
+    "fs:allow-appdata-meta"
   ]
 }

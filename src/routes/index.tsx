@@ -1,16 +1,12 @@
-import { createFileRoute } from '@tanstack/react-router';
-import "@styles/pages/main.css"
-import { type TThought, VList } from '@organisms';
 import { Input } from '@atoms/Input';
-import { invoke } from '@tauri-apps/api/core';
-import { createTransaction } from '@utils/transaction';
+import { getHotkeyHandler } from '@mantine/hooks';
+import { type TThought, VList } from '@organisms';
+import "@styles/pages/main.css";
+import { createFileRoute } from '@tanstack/react-router';
+import { createThought, createThoughtDir, readMetadataFile, readThoughtDirectory, unwrap } from '@utils/instruments_for_thoughts';
+import { read } from 'fs';
 import { useEffect, useState } from 'react';
-import { appDataDir } from '@tauri-apps/api/path';
-import { create, BaseDirectory } from '@tauri-apps/plugin-fs';
-import UseKey from 'react-use/lib/component/UseKey';
-import { getHotkeyHandler, useHotkeys } from '@mantine/hooks';
-import { createThought, createThoughtDir } from '@utils/instruments_for_thoughts';
-import { log } from 'console';
+import { useAsync } from 'react-use';
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -33,6 +29,14 @@ function Index() {
     ...thought,
     id: i.toString(),
   }));
+  useAsync(async () => {
+    const x = await readThoughtDirectory()
+    const q = await readMetadataFile(x[0].name)
+    console.log(x)
+    console.log(q)
+    return x
+  }, [])
+
   useEffect(() => {
     createThoughtDir()
   }, [])

@@ -1,11 +1,11 @@
-import { Input } from '@atoms/Input';
+import { ControleInput, Input } from '@atoms/Input';
 import { getHotkeyHandler } from '@mantine/hooks';
 import { type TThought, VList } from '@organisms';
 import "@styles/pages/main.css";
 import { createFileRoute } from '@tanstack/react-router';
 import { createThought, createThoughtDir, readMetadataFile, readThoughtDirectory, unwrap } from '@utils/instruments_for_thoughts';
 import { read } from 'fs';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useAsync } from 'react-use';
 
 export const Route = createFileRoute('/')({
@@ -22,9 +22,7 @@ const thought: TThought = {
     'Или, может, всё проще. И надо просто зафиксить баг, который мешает почувствовать настоящую производительность бытия.\n' +
     '\n',
 };
-
 function Index() {
-  const [valueInput, setValueInput] = useState("")
   const thoughts: TThought[] = Array.from({ length: 100 }, (_, i) => ({
     ...thought,
     id: i.toString(),
@@ -47,17 +45,9 @@ function Index() {
         render={(key, item, thought) => (
           <VList.Item key={key} item={item} thought={thought} />
         )}
+
       />
-      <Input value={valueInput} onChange={(e) => setValueInput(e.target.value)} onKeyDown={getHotkeyHandler(
-        [
-
-          ["Enter", (e) => {
-            createThought(e.target.value)
-            setValueInput("")
-          }]
-        ]
-
-      )} />
+      <ControleInput />
     </main>
   );
 }

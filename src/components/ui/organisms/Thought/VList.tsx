@@ -1,11 +1,11 @@
 import { useMantineTheme } from '@mantine/core';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { useMemo, useRef } from 'react';
+import { memo, useMemo, useRef } from 'react';
 
 import type { TVList } from './types';
 import { VItem } from './VItem.tsx';
 
-export const VList: TVList = ({ thoughts, style, render, ...props }) => {
+export const VList: TVList = memo(({ thoughts, style, render, ...props }) => {
   const theme = useMantineTheme();
   const parentRef = useRef<HTMLDivElement | null>(null);
 
@@ -54,6 +54,6 @@ export const VList: TVList = ({ thoughts, style, render, ...props }) => {
       </div>
     </div>
   );
-};
+});
 
 VList.Item = VItem;

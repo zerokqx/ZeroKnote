@@ -1,9 +1,19 @@
 import { ControleInput, Input } from '@atoms/Input';
+import { Center, Loader } from '@mantine/core';
 import { getHotkeyHandler } from '@mantine/hooks';
 import { type TThought, VList } from '@organisms';
-import "@styles/pages/main.css";
+import '@styles/pages/main.css';
 import { createFileRoute } from '@tanstack/react-router';
-import { createThought, createThoughtDir, readMetadataFile, readThoughtDirectory, unwrap } from '@utils/instruments_for_thoughts';
+import {
+  adaptationStruct,
+  createThought,
+  createThoughtDir,
+  getHumanizeDate,
+  readMetadataFile,
+  readThoughtDirectory,
+  readThouthFile,
+  unwrap,
+} from '@utils/instruments_for_thoughts';
 import { read } from 'fs';
 import { memo, useEffect, useState } from 'react';
 import { useAsync } from 'react-use';
@@ -23,30 +33,32 @@ const thought: TThought = {
     '\n',
 };
 function Index() {
-  const thoughts: TThought[] = Array.from({ length: 100 }, (_, i) => ({
-    ...thought,
-    id: i.toString(),
-  }));
+  const [th, setTh] = useState<TThought[]>([]);
   useAsync(async () => {
-    const x = await readThoughtDirectory()
-    const q = await readMetadataFile(x[0].name)
-    console.log(x)
-    console.log(q)
-    return x
-  }, [])
+    const x = await readThoughtDirectory();
+
+    const thoughts = await adaptationStruct(x);
+    setTh(thoughts);
+    return x;
+  }, []);
 
   useEffect(() => {
-    createThoughtDir()
-  }, [])
+    createThoughtDir();
+  }, []);
   return (
     <main>
-      <VList
-        thoughts={thoughts}
-        render={(key, item, thought) => (
-          <VList.Item key={key} item={item} thought={thought} />
-        )}
-
-      />
+      {th.length > 0 ? (
+        <VList
+          thoughts={th}
+          render={(key, item, thought) => (
+            <VList.Item key={key} item={item} thought={thought} />
+          )}
+        />
+      ) : (
+        <Center w='100%' h='100%'>
+          <Loader color='black' />
+        </Center>
+      )}
       <ControleInput />
     </main>
   );

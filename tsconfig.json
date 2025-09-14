@@ -58,7 +58,8 @@
       ],
       "@root/*": [
         "*"
-      ]
+      ],
+  "@types": ["types/index.ts"],
     },
     /* Linting */
     "strict": true,

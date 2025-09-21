@@ -33,8 +33,8 @@ function Index() {
       {th.length > 0 ? (
         <VList
           thoughts={th}
-          render={(key, item, thought) => (
-            <VList.Item key={key} item={item} thought={thought} />
+          render={(key, item, thought, ref) => (
+            <VList.Item key={key} ref={ref} item={item} thought={thought} />
           )}
         />
       ) : (

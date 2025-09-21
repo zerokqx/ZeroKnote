@@ -1,6 +1,6 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 
-import { mediaQueries } from '@/styles/breakpoints.ts';
+import { mediaQueries } from '../breakpoints.ts';
 
 export const d = defineProperties({
   conditions: mediaQueries,

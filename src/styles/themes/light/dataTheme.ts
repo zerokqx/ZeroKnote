@@ -1,8 +1,8 @@
-import { gradationColors } from '@/utils/gradationColors.ts';
+import { gradationColors } from '@utils/gradationColors.ts';
 
 const PRIMARY_COLOR = '#1E1E1E';
 
-export default {
+export const dataTheme = {
   colors: {
     gray: gradationColors('#ffffff', '#1E1E1E'), // типичный тёмный градиент
     primary: gradationColors('white', PRIMARY_COLOR),

@@ -1,8 +1,10 @@
+import tanstackRouter from '@tanstack/router-plugin/vite';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import { defineConfig } from 'vite';
 import vitePluginSvgr from 'vite-plugin-svgr';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
@@ -10,7 +12,10 @@ const host = process.env.TAURI_DEV_HOST;
 export default defineConfig(async () => ({
   plugins: [
     vanillaExtractPlugin(),
-
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true,
+    }),
     react(),
     vitePluginSvgr({
       svgrOptions: {
@@ -20,20 +25,9 @@ export default defineConfig(async () => ({
         },
       },
     }),
+    tsconfigPaths(),
   ],
 
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  //
-  // 1. prevent vite from obscuring rust errors
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@styles': path.resolve(__dirname, 'src/styles'),
-      '@types': path.resolve(__dirname, 'src/types'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@svg': path.resolve(__dirname, 'src/assets/svg/'),
-    },
-  },
   clearScreen: false,
   // 2. tauri expects a fixed port, fail if that port is not available
   server: {
@@ -42,10 +36,10 @@ export default defineConfig(async () => ({
     host: host || false,
     hmr: host
       ? {
-          protocol: 'ws',
-          host,
-          port: 1421,
-        }
+        protocol: 'ws',
+        host,
+        port: 1421,
+      }
       : undefined,
     watch: {
       // 3. tell vite to ignore watching `src-tauri`

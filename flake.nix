@@ -1,32 +1,30 @@
 {
   description = "ZerokNote dep";
 
-  inputs.nixpkgs.url =
-    "github:NixOS/nixpkgs/57afa2783caf7d6713f63c8e29fba6c52a3a5300";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/57afa2783caf7d6713f63c8e29fba6c52a3a5300";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+  };
 
-  outputs = inputs@{ self, nixpkgs }:
+  outputs = inputs@{ self, nixpkgs, rust-overlay, ... }: 
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-      pnpmBin = "${pkgs.pnpm_10}/bin/pnpm";
+      overlays = [ (import rust-overlay) ];
+      pkgs = import nixpkgs { inherit system overlays; };
+      rust = pkgs.rust-bin.stable.latest.complete;
     in {
       devShells.${system}.default = pkgs.mkShell {
-        # env vars
-        env = {
-          RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
-          p = pnpmBin;
-        };
+        packages = with pkgs; [
+          rust
+          cargo
+          cargo-tauri
+          pkgs.rust-bin.stable.latest.rust-src
 
-        nativeBuildInputs = with pkgs; [
           pkg-config
           gobject-introspection
-          cargo
-          nodejs
-
-          cargo-tauri
-        ];
-
-        buildInputs = with pkgs; [
+          nodejs_24
+          wrapGAppsHook3
+          glib-networking
           at-spi2-atk
           atkmm
           cairo
@@ -39,14 +37,17 @@
           pango
           webkitgtk_4_1
           openssl
-          rustc
           pnpm_10
           xdg-utils
           libgtkflow3
-          nodejs_24
         ];
 
         shellHook = ''
+          export GDK_BACKEND=x11
+          export WEBKIT_DISABLE_COMPOSITING_MODE=1
+          export GDK_SCALE=1
+          export GDK_DPI_SCALE=1
+          alias p=pnpm
           echo "🧠 ZEROKNOTE: shell initialized"
           clear
         '';

@@ -22,4 +22,4 @@ export type GetFileText = () => ReturnType<ReadThoughtFile>;
 export type PatchThoughtFn = (updatetText: string) => Promise<void>;
 export type AdaptgationStruct = (
   readDirResult: Awaited<ReturnType<ReadThoughtDirectory>>
-) => TThought;
+) => Promise<TThought[]>;

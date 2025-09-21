@@ -8,8 +8,6 @@ import {
   truncate,
   writeTextFile,
 } from '@tauri-apps/plugin-fs';
-import { getHumanizeDate, readMetadataFile } from './metadataOperation';
-import { nameDirectory, baseDir, formatPath } from './miniUtils';
 import {
   AdaptgationStruct,
   CreateThought,
@@ -20,28 +18,32 @@ import {
   ReadThoughtDirectory,
   ReadThoughtFile,
 } from '@types';
-
-// BUG: metadata.atime|mtime необходимо проверять перед передачей в `time`
+import { getHumanizeDate, readMetadataFile } from './metadataOperation';
+import { baseDir, formatPath, nameDirectory } from './miniUtils';
+import * as R from 'ramda';
 export const adaptationStruct: AdaptgationStruct = async (readDirResult) => {
-  const thoughts = await Promise.all(
+  return await Promise.all(
     readDirResult.map(async (cur, id) => {
       const { name } = cur;
       const metadata = await readMetadataFile(name);
-      const time: Pick<TThought, 'createdAt' | 'updatedAt'> = {
-        createdAt: getHumanizeDate(metadata.atime).date,
-        updatedAt: getHumanizeDate(metadata.mtime).date,
-      };
       const content = await readThouthFile(name);
-      return {
-        ...time,
+      const generalAttr: TThought = {
         name,
         id: id.toString(),
+        createdAt: 'null',
+        updatedAt: 'null',
         content,
       };
+      if (metadata.atime && metadata.mtime) {
+        const time: Pick<TThought, 'createdAt' | 'updatedAt'> = {
+          createdAt: getHumanizeDate(metadata.atime).date,
+          updatedAt: getHumanizeDate(metadata.mtime).date,
+        };
+        return R.mergeAll([generalAttr, time]) satisfies TThought;
+      }
+      return generalAttr;
     })
   );
-  console.log(thoughts);
-  return thoughts;
 };
 export const readThoughtDirectory: ReadThoughtDirectory = async () => {
   return await readDir(nameDirectory, { baseDir });

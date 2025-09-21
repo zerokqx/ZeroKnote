@@ -1,4 +1,4 @@
-import type { VirtualItem } from '@tanstack/react-virtual';
+import type { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
 import type { ComponentProps, FC, ReactNode } from 'react';
 
 import type { TThought } from './thought.types.ts';
@@ -7,7 +7,8 @@ import type { TVItem } from './vitem.type.ts';
 export type TVListRenderProp = (
   key: VirtualItem['key'],
   item: VirtualItem,
-  thought: TThought
+  thought: TThought,
+  ref: ReturnType<typeof useVirtualizer>['measureElement']
 ) => ReactNode;
 
 export interface TVListProps {

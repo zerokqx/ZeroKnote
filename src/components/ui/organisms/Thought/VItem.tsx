@@ -4,9 +4,10 @@ import { CelindrResize } from './CelindrResize.tsx';
 import { Thought } from './Thought.tsx';
 import type { TVItem } from './types';
 
-export const VItem: TVItem = memo(({ item, thought }) => {
+export const VItem: TVItem = memo(({ item, thought }, ref) => {
   return (
     <div
+      ref={ref}
       key={item.key}
       data-index={item.index}
       style={{

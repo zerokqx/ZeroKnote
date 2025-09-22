@@ -42,7 +42,7 @@ function Index() {
           <Loader color='black' />
         </Center>
       )}
-      <ControleInput />
+      <ControleInput />{' '}
     </main>
   );
 }

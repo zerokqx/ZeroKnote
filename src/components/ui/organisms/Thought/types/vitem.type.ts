@@ -1,6 +1,10 @@
 import type { VirtualItem } from '@tanstack/react-virtual';
-import type { ComponentProps, FC } from 'react';
-
+import type {
+  ForwardRefExoticComponent,
+  MemoExoticComponent,
+  RefAttributes,
+  RefObject,
+} from 'react';
 import type { TThought } from './thought.types.ts';
 
 export interface TVItemProps {
@@ -8,4 +12,6 @@ export interface TVItemProps {
   thought: TThought;
 }
 
-export type TVItem = FC<ComponentProps<'div'> & TVItemProps>;
+export type TVItem = MemoExoticComponent<
+  ForwardRefExoticComponent<TVItemProps & RefAttributes<HTMLDivElement>>
+>;

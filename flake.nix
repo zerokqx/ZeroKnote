@@ -2,11 +2,12 @@
   description = "ZerokNote dep";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/57afa2783caf7d6713f63c8e29fba6c52a3a5300";
+    nixpkgs.url =
+      "github:NixOS/nixpkgs/57afa2783caf7d6713f63c8e29fba6c52a3a5300";
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = inputs@{ self, nixpkgs, rust-overlay, ... }: 
+  outputs = inputs@{ self, nixpkgs, rust-overlay, ... }:
     let
       system = "x86_64-linux";
       overlays = [ (import rust-overlay) ];
@@ -19,7 +20,7 @@
           cargo
           cargo-tauri
           pkgs.rust-bin.stable.latest.rust-src
-
+          bun
           pkg-config
           gobject-introspection
           nodejs_24

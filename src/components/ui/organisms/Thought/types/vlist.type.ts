@@ -1,5 +1,5 @@
 import type { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
-import type { ComponentProps, FC, ReactNode } from 'react';
+import type { ComponentProps, MemoExoticComponent, ReactNode } from 'react';
 
 import type { TThought } from './thought.types.ts';
 import type { TVItem } from './vitem.type.ts';
@@ -19,5 +19,6 @@ export interface TVListProps {
 export interface TVListComputed {
   Item: TVItem;
 }
-
-export type TVList = FC<ComponentProps<'div'> & TVListProps> & TVListComputed;
+export type PropsList = Omit<ComponentProps<'div'>, 'ref'> & TVListProps;
+export type TVList = MemoExoticComponent<(props: PropsList) => ReactNode> &
+  TVListComputed;
